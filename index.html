@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mischief Managed — A Farewell to Ali Moeeny</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lora:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
     <style>
         @font-face {
             font-family: 'MaraudersMap';
@@ -15,8 +18,19 @@
             font-style: normal;
             font-display: swap;
         }
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: auto; }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: auto;
+        }
+
         body {
             font-family: 'MaraudersMap', 'Lora', Georgia, serif;
             background: #0a0a14;
@@ -30,6 +44,7 @@
             height: 500vh;
             position: relative;
         }
+
         .stage {
             position: sticky;
             top: 0;
@@ -48,9 +63,17 @@
             will-change: opacity;
             animation: twinkle var(--dur) ease-in-out var(--delay) infinite;
         }
+
         @keyframes twinkle {
-            0%, 100% { opacity: 0.15; }
-            50% { opacity: 1; }
+
+            0%,
+            100% {
+                opacity: 0.15;
+            }
+
+            50% {
+                opacity: 1;
+            }
         }
 
         /* ── Scroll Indicator ── */
@@ -68,6 +91,7 @@
             transition: opacity 0.6s ease;
             z-index: 5;
         }
+
         .scroll-hint .arrow {
             display: block;
             margin: 8px auto 0;
@@ -78,9 +102,17 @@
             transform: rotate(45deg);
             animation: bob-arrow 1.6s ease-in-out infinite;
         }
+
         @keyframes bob-arrow {
-            0%, 100% { transform: rotate(45deg) translateY(0); }
-            50% { transform: rotate(45deg) translateY(5px); }
+
+            0%,
+            100% {
+                transform: rotate(45deg) translateY(0);
+            }
+
+            50% {
+                transform: rotate(45deg) translateY(5px);
+            }
         }
 
         /* ── Owl ── */
@@ -92,18 +124,46 @@
             pointer-events: none;
             z-index: 3;
         }
-        .wing-l { transform-origin: 210px 195px; }
-        .wing-r { transform-origin: 290px 195px; }
+
+        .wing-l {
+            transform-origin: 210px 195px;
+        }
+
+        .wing-r {
+            transform-origin: 290px 195px;
+        }
+
         @keyframes flap-l {
-            0%, 100% { transform: rotate(-25deg); }
-            50% { transform: rotate(16deg); }
+
+            0%,
+            100% {
+                transform: rotate(-25deg);
+            }
+
+            50% {
+                transform: rotate(16deg);
+            }
         }
+
         @keyframes flap-r {
-            0%, 100% { transform: rotate(25deg); }
-            50% { transform: rotate(-16deg); }
+
+            0%,
+            100% {
+                transform: rotate(25deg);
+            }
+
+            50% {
+                transform: rotate(-16deg);
+            }
         }
-        .wing-l { animation: flap-l 0.45s ease-in-out infinite; }
-        .wing-r { animation: flap-r 0.45s ease-in-out infinite; }
+
+        .wing-l {
+            animation: flap-l 0.45s ease-in-out infinite;
+        }
+
+        .wing-r {
+            animation: flap-r 0.45s ease-in-out infinite;
+        }
 
         /* ── Envelope (standalone, after owl drops it) ── */
         .envelope-wrap {
@@ -114,6 +174,7 @@
             pointer-events: none;
             z-index: 2;
         }
+
         .envelope {
             position: relative;
             width: 280px;
@@ -121,6 +182,7 @@
             perspective: 600px;
             transform-style: preserve-3d;
         }
+
         .env-back {
             position: absolute;
             inset: 0;
@@ -128,40 +190,52 @@
             border-radius: 6px;
             border: 2px solid #c9a84c;
         }
+
         .env-front {
             position: absolute;
-            left: 0; right: 0; bottom: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             height: 72%;
             background: linear-gradient(165deg, #dbb55e 0%, #c9a040 50%, #b8922e 100%);
             border-radius: 0 0 6px 6px;
             border: 2px solid #b8942f;
             border-top: none;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
             z-index: 1;
         }
+
         .env-fold-left {
             position: absolute;
-            left: 0; bottom: 0;
-            width: 50%; height: 72%;
+            left: 0;
+            bottom: 0;
+            width: 50%;
+            height: 72%;
             clip-path: polygon(0 0, 0 100%, 100% 100%);
             background: linear-gradient(135deg, #c49a3c, #b8902a);
             border-radius: 0 0 0 6px;
             z-index: 2;
             opacity: 0.5;
         }
+
         .env-fold-right {
             position: absolute;
-            right: 0; bottom: 0;
-            width: 50%; height: 72%;
+            right: 0;
+            bottom: 0;
+            width: 50%;
+            height: 72%;
             clip-path: polygon(100% 0, 0 100%, 100% 100%);
             background: linear-gradient(225deg, #c49a3c, #b8902a);
             border-radius: 0 0 6px 0;
             z-index: 2;
             opacity: 0.5;
         }
+
         .env-flap {
             position: absolute;
-            top: 0; left: 0; right: 0;
+            top: 0;
+            left: 0;
+            right: 0;
             height: 50%;
             background: linear-gradient(180deg, #dbb55e 0%, #c9a040 100%);
             clip-path: polygon(0 0, 35% 100%, 65% 100%, 100% 0);
@@ -169,6 +243,7 @@
             z-index: 3;
             backface-visibility: hidden;
         }
+
         .env-seal {
             position: absolute;
             top: 28%;
@@ -178,6 +253,7 @@
             height: 36px;
             z-index: 4;
         }
+
         .env-chrome {
             transition: opacity 0.3s ease;
         }
@@ -212,11 +288,13 @@
             background: #f5e6c8;
             min-height: 100vh;
         }
+
         .letter-inner {
             max-width: 700px;
             margin: 0 auto;
             padding: 80px 32px 60px;
         }
+
         .letter-content h2 {
             font-family: 'MaraudersMap', serif;
             color: #6b4423;
@@ -226,6 +304,7 @@
             margin: 60px 0 32px;
             letter-spacing: 0.04em;
         }
+
         .letter-content p {
             font-size: clamp(1rem, 2.5vw, 1.12rem);
             margin-bottom: 16px;
@@ -244,6 +323,7 @@
             transform: translateY(20px);
             transition: opacity 1s ease, transform 1s ease;
         }
+
         .salutation.revealed {
             opacity: 1;
             transform: translateY(0);
@@ -254,6 +334,7 @@
             clip-path: inset(0 100% 0 0);
             transition: clip-path 2.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
+
         .ink-reveal.revealed {
             clip-path: inset(0 0% 0 0);
         }
@@ -275,6 +356,7 @@
             width: 100vw;
             margin-left: calc(50% - 50vw);
         }
+
         .broom-text-overlay {
             position: relative;
             z-index: 1;
@@ -282,26 +364,50 @@
             margin: 0 auto;
             padding: 0 32px;
         }
+
         .broom-rider {
             position: absolute;
             top: 0;
             left: 0;
             transform: translate(-320px, 0) rotate(15deg);
             will-change: transform;
-            filter: drop-shadow(2px 4px 6px rgba(40,20,5,0.25));
+            filter: drop-shadow(2px 4px 6px rgba(40, 20, 5, 0.25));
         }
+
         .broom-rider.fly {
             animation: flyAcross 3.6s cubic-bezier(0.22, 0.6, 0.36, 1) forwards;
         }
+
         @keyframes flyAcross {
-            0%   { transform: translate(-320px, 2%) rotate(16deg); }
-            15%  { transform: translate(10vw, 10vh) rotate(13deg); }
-            30%  { transform: translate(25vw, 20vh) rotate(17deg); }
-            50%  { transform: translate(46vw, 32vh) rotate(14deg); }
-            70%  { transform: translate(68vw, 42vh) rotate(16deg); }
-            85%  { transform: translate(84vw, 48vh) rotate(13deg); }
-            100% { transform: translate(calc(100vw + 320px), 55vh) rotate(15deg); }
+            0% {
+                transform: translate(-320px, 2%) rotate(16deg);
+            }
+
+            15% {
+                transform: translate(10vw, 10vh) rotate(13deg);
+            }
+
+            30% {
+                transform: translate(25vw, 20vh) rotate(17deg);
+            }
+
+            50% {
+                transform: translate(46vw, 32vh) rotate(14deg);
+            }
+
+            70% {
+                transform: translate(68vw, 42vh) rotate(16deg);
+            }
+
+            85% {
+                transform: translate(84vw, 48vh) rotate(13deg);
+            }
+
+            100% {
+                transform: translate(calc(100vw + 320px), 55vh) rotate(15deg);
+            }
         }
+
         .broom-sparkle {
             position: absolute;
             width: 6px;
@@ -311,18 +417,174 @@
             pointer-events: none;
             animation: sparkFade 0.9s ease-out forwards;
         }
+
         @keyframes sparkFade {
-            0%   { opacity: 1; transform: scale(1); }
-            100% { opacity: 0; transform: scale(0.2) translateY(20px); }
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            100% {
+                opacity: 0;
+                transform: scale(0.2) translateY(20px);
+            }
         }
+
         .broom-star {
             position: absolute;
             pointer-events: none;
             animation: starFade 1.2s ease-out forwards;
         }
+
         @keyframes starFade {
-            0%   { opacity: 0.9; transform: scale(0.8) rotate(0deg); }
-            100% { opacity: 0; transform: scale(0.1) rotate(120deg) translateY(30px); }
+            0% {
+                opacity: 0.9;
+                transform: scale(0.8) rotate(0deg);
+            }
+
+            100% {
+                opacity: 0;
+                transform: scale(0.1) rotate(120deg) translateY(30px);
+            }
+        }
+
+        /* ── Diagon Alley / Medfinder Castle ── */
+        .diagon-scroll {
+            position: relative;
+            height: 500vh;
+            width: 100vw;
+            margin-left: calc(50% - 50vw);
+        }
+
+        .diagon-sticky {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #1a0e08;
+        }
+
+        .brick-wall {
+            position: absolute;
+            inset: 0;
+            z-index: 3;
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            grid-template-rows: repeat(12, 1fr);
+            gap: 3px;
+            padding: 3px;
+            background: #3a3028;
+            will-change: opacity;
+        }
+
+        .brick {
+            border-radius: 2px;
+            box-shadow: inset 0 1px 0 rgba(255, 220, 160, 0.12), inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+            will-change: transform, opacity;
+        }
+
+        .brick.offset {
+            margin-left: -6.25%;
+            margin-right: 6.25%;
+        }
+
+        .diagon-text {
+            position: absolute;
+            top: 8vh;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 5;
+            max-width: 600px;
+            text-align: center;
+            padding: 0 28px;
+            will-change: opacity;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .diagon-text p {
+            font-style: italic;
+            color: #d4c4a0;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            text-shadow: 0 0 20px rgba(201, 168, 76, 0.3);
+        }
+
+        .diagon-text .place-name {
+            font-family: 'MaraudersMap', serif;
+            color: #c9a84c;
+            font-size: 1.35rem;
+            display: block;
+            margin-top: 14px;
+            letter-spacing: 0.06em;
+        }
+
+        .castle-scene {
+            position: absolute;
+            top: 18vh;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            will-change: opacity, transform;
+        }
+
+        .castle-svg {
+            width: min(90vw, 520px);
+            height: auto;
+            filter: drop-shadow(0 8px 30px rgba(201, 168, 76, 0.15));
+        }
+
+        .castle-glow {
+            position: absolute;
+            width: 60%;
+            height: 60%;
+            top: 20%;
+            left: 20%;
+            background: radial-gradient(ellipse, rgba(201, 168, 76, 0.12) 0%, transparent 70%);
+            z-index: 0;
+            animation: castlePulse 4s ease-in-out infinite;
+        }
+
+        @keyframes castlePulse {
+
+            0%,
+            100% {
+                opacity: 0.6;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.08);
+            }
+        }
+
+        .flag-wave {
+            animation: flagWave 2.5s ease-in-out infinite;
+            transform-origin: left center;
+        }
+
+        @keyframes flagWave {
+
+            0%,
+            100% {
+                transform: skewY(0deg) scaleX(1);
+            }
+
+            25% {
+                transform: skewY(-2deg) scaleX(0.97);
+            }
+
+            75% {
+                transform: skewY(2deg) scaleX(1.02);
+            }
         }
 
         /* ── Spells Section (scroll-driven, one at a time) ── */
@@ -331,6 +593,7 @@
             width: 100vw;
             margin-left: calc(50% - 50vw);
         }
+
         .spells-sticky {
             position: sticky;
             top: 0;
@@ -341,6 +604,7 @@
             justify-content: center;
             overflow: hidden;
         }
+
         .spells-title {
             position: absolute;
             top: 8vh;
@@ -348,6 +612,7 @@
             transform: translateX(-50%);
             white-space: nowrap;
         }
+
         .spell-entry {
             position: absolute;
             text-align: center;
@@ -357,87 +622,110 @@
             transition: opacity 0.5s ease;
             pointer-events: none;
         }
+
         .spell-entry.active {
             opacity: 1;
             pointer-events: auto;
         }
+
         .spell-wand {
             position: absolute;
             top: 50%;
             opacity: 0;
             transition: opacity 0.4s ease, transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
-            filter: drop-shadow(2px 4px 8px rgba(40,20,5,0.4));
+            filter: drop-shadow(2px 4px 8px rgba(40, 20, 5, 0.4));
             pointer-events: none;
             transform-origin: center;
         }
+
         .spell-wand svg {
             display: block;
         }
+
         .spell-wand.from-left {
             left: 2vw;
             transform: translateY(-50%) rotate(20deg) translateX(-60px);
         }
+
         .spell-wand.from-right {
             right: 2vw;
             transform: translateY(-50%) rotate(-20deg) scaleX(-1) translateX(-60px);
         }
+
         .spell-wand.cast {
             opacity: 1;
         }
+
         .spell-wand.from-left.cast {
             transform: translateY(-50%) rotate(-8deg) translateX(0);
         }
+
         .spell-wand.from-right.cast {
             transform: translateY(-50%) rotate(8deg) scaleX(-1) translateX(0);
         }
+
         .spell-wand.fired.from-left {
             transform: translateY(-50%) rotate(-3deg) translateX(0);
         }
+
         .spell-wand.fired.from-right {
             transform: translateY(-50%) rotate(3deg) scaleX(-1) translateX(0);
         }
+
         .wand-glow {
             position: absolute;
             width: 28px;
             height: 28px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(201,168,76,0.95) 0%, rgba(255,215,0,0.5) 35%, transparent 70%);
+            background: radial-gradient(circle, rgba(201, 168, 76, 0.95) 0%, rgba(255, 215, 0, 0.5) 35%, transparent 70%);
             pointer-events: none;
             opacity: 0;
             top: 50%;
             transform: translateY(-50%) scale(0.5);
             transition: opacity 0.3s ease, transform 0.4s ease;
         }
-        .spell-wand.from-left .wand-glow { right: -16px; }
-        .spell-wand.from-right .wand-glow { left: -16px; }
+
+        .spell-wand.from-left .wand-glow {
+            right: -16px;
+        }
+
+        .spell-wand.from-right .wand-glow {
+            left: -16px;
+        }
+
         .spell-wand.cast .wand-glow {
             opacity: 0.6;
             transform: translateY(-50%) scale(1.5);
         }
+
         .spell-wand.fired .wand-glow {
             opacity: 1;
             transform: translateY(-50%) scale(3);
         }
+
         .spell-beam {
             position: absolute;
             top: 50%;
             height: 4px;
-            background: linear-gradient(90deg, rgba(201,168,76,0.9), rgba(255,215,0,0.3), transparent);
+            background: linear-gradient(90deg, rgba(201, 168, 76, 0.9), rgba(255, 215, 0, 0.3), transparent);
             transform: translateY(-50%) scaleX(0);
             transform-origin: left center;
             transition: transform 0.6s cubic-bezier(0.22, 0.6, 0.36, 1);
             pointer-events: none;
             border-radius: 2px;
-            box-shadow: 0 0 8px rgba(201,168,76,0.3);
+            box-shadow: 0 0 8px rgba(201, 168, 76, 0.3);
         }
+
         .spell-wand.from-right .spell-beam {
             transform: translateY(-50%) scaleX(0);
             transform-origin: right center;
-            background: linear-gradient(-90deg, rgba(201,168,76,0.9), rgba(255,215,0,0.3), transparent);
+            background: linear-gradient(-90deg, rgba(201, 168, 76, 0.9), rgba(255, 215, 0, 0.3), transparent);
         }
+
         .spell-wand.fired .spell-beam {
             transform: translateY(-50%) scaleX(1);
         }
+
         .spell-spark {
             position: absolute;
             width: 3px;
@@ -449,10 +737,19 @@
             z-index: 5;
             animation: castSpark 0.7s ease-out forwards;
         }
+
         @keyframes castSpark {
-            0%   { opacity: 1; transform: translate(0,0) scale(1); }
-            100% { opacity: 0; transform: translate(var(--sx), var(--sy)) scale(0); }
+            0% {
+                opacity: 1;
+                transform: translate(0, 0) scale(1);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translate(var(--sx), var(--sy)) scale(0);
+            }
         }
+
         .spell-name {
             font-family: 'MaraudersMap', serif;
             font-size: clamp(1.4rem, 4vw, 2rem);
@@ -465,11 +762,13 @@
             filter: blur(6px);
             transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.15), filter 0.5s ease;
         }
+
         .spell-entry.show-name .spell-name {
             opacity: 1;
             transform: scale(1);
             filter: blur(0);
         }
+
         .spell-desc {
             font-style: italic;
             color: #8a7050;
@@ -479,6 +778,7 @@
             transform: translateY(14px);
             transition: opacity 0.5s ease, transform 0.5s ease;
         }
+
         .spell-entry.show-desc .spell-desc {
             opacity: 1;
             transform: translateY(0);
@@ -491,32 +791,52 @@
             padding: 10px 0 20px;
             overflow: hidden;
         }
+
         .next-chapter-section h2,
         .next-chapter-section .farewell-block {
             position: relative;
             z-index: 2;
         }
+
         .footprint-pair {
             position: absolute;
             pointer-events: none;
             opacity: 0;
             z-index: 1;
         }
+
         .footprint-pair.walking {
             animation: footAppear var(--dur, 3s) ease-in-out var(--delay, 0s) forwards;
         }
+
         @keyframes footAppear {
-            0%   { opacity: 0; }
-            12%  { opacity: 0.12; }
-            50%  { opacity: 0.12; }
-            100% { opacity: 0; }
+            0% {
+                opacity: 0;
+            }
+
+            12% {
+                opacity: 0.12;
+            }
+
+            50% {
+                opacity: 0.12;
+            }
+
+            100% {
+                opacity: 0;
+            }
         }
+
         .farewell-block {
             opacity: 0;
             transform: translateY(16px);
             transition: opacity 1s ease, transform 1s ease;
         }
-        .farewell-block.revealed { opacity: 1; transform: translateY(0); }
+
+        .farewell-block.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
         /* ── MAGIC → MAGI.ai ── */
         /* ── Magic reveal spacer ── */
@@ -524,19 +844,37 @@
             height: 65vh;
             position: relative;
         }
+
+        .magic-scroll {
+            position: relative;
+            height: 400vh;
+        }
+
+        .magic-sticky {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
         .magic-section {
             position: relative;
             text-align: center;
             padding: 70px 0 80px;
             overflow: hidden;
-            min-height: 50vh;
+            width: 100%;
         }
+
         .fireworks-canvas {
             position: absolute;
             inset: 0;
             pointer-events: none;
             z-index: 0;
         }
+
         .magic-lead {
             font-family: 'MaraudersMap', serif;
             font-size: clamp(1.2rem, 3.5vw, 1.8rem);
@@ -550,11 +888,13 @@
             filter: blur(8px);
             transition: opacity 0.8s ease, transform 0.8s ease, filter 0.8s ease;
         }
+
         .magic-section.phase-lead .magic-lead {
             opacity: 1;
             transform: translateY(0);
             filter: blur(0);
         }
+
         .magic-word {
             font-family: 'MaraudersMap', serif;
             font-weight: 900;
@@ -566,6 +906,7 @@
             z-index: 1;
             display: inline-block;
         }
+
         .magic-letter {
             display: inline-block;
             opacity: 0;
@@ -573,15 +914,29 @@
             filter: blur(12px);
             transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.18, 0.89, 0.32, 1.15), filter 0.7s ease, color 0.6s ease;
         }
+
         .magic-section.phase-word .magic-letter {
             opacity: 1;
             transform: scale(1) translateY(0);
             filter: blur(0);
         }
-        .magic-letter:nth-child(1) { transition-delay: 0s; }
-        .magic-letter:nth-child(2) { transition-delay: 0.1s; }
-        .magic-letter:nth-child(3) { transition-delay: 0.2s; }
-        .magic-letter:nth-child(4) { transition-delay: 0.3s; }
+
+        .magic-letter:nth-child(1) {
+            transition-delay: 0s;
+        }
+
+        .magic-letter:nth-child(2) {
+            transition-delay: 0.1s;
+        }
+
+        .magic-letter:nth-child(3) {
+            transition-delay: 0.2s;
+        }
+
+        .magic-letter:nth-child(4) {
+            transition-delay: 0.3s;
+        }
+
         .magic-c-wrap {
             display: inline-block;
             position: relative;
@@ -590,20 +945,24 @@
             filter: blur(12px);
             transition: opacity 0.7s ease 0.4s, transform 0.7s cubic-bezier(0.18, 0.89, 0.32, 1.15) 0.4s, filter 0.7s ease 0.4s;
         }
+
         .magic-section.phase-word .magic-c-wrap {
             opacity: 1;
             transform: scale(1) translateY(0);
             filter: blur(0);
         }
+
         .magic-c {
             display: inline-block;
             transform-origin: bottom right;
             transition: transform 1s cubic-bezier(0.55, 0, 0.68, 0.53), opacity 0.8s ease 0.3s;
         }
+
         .magic-c.falling {
             transform: rotate(90deg) translateY(20px);
             opacity: 0;
         }
+
         .magic-ai {
             position: absolute;
             left: 0;
@@ -615,18 +974,21 @@
             opacity: 0;
             transform: translateY(8px);
             transition: opacity 0.6s ease, transform 0.6s ease;
-            text-shadow: 0 0 20px rgba(201,168,76,0.4);
+            text-shadow: 0 0 20px rgba(201, 168, 76, 0.4);
             vertical-align: baseline;
             line-height: 1;
             top: 0.45em;
         }
+
         .magic-ai.visible {
             opacity: 1;
             transform: translateY(0);
         }
+
         .magic-section.revealed .magic-letter {
             color: #c9a84c;
         }
+
         .magic-dust {
             position: absolute;
             border-radius: 50%;
@@ -635,11 +997,23 @@
             background: radial-gradient(circle, #f5d98a 0%, #c9a84c 50%, transparent 100%);
             animation: dustDrift var(--dd, 2s) ease-out forwards;
         }
+
         @keyframes dustDrift {
-            0%   { opacity: 0.9; transform: translate(0,0) scale(1); }
-            50%  { opacity: 0.6; }
-            100% { opacity: 0; transform: translate(var(--dx, 0px), var(--dy, -40px)) scale(0); }
+            0% {
+                opacity: 0.9;
+                transform: translate(0, 0) scale(1);
+            }
+
+            50% {
+                opacity: 0.6;
+            }
+
+            100% {
+                opacity: 0;
+                transform: translate(var(--dx, 0px), var(--dy, -40px)) scale(0);
+            }
         }
+
         .fw-particle {
             position: absolute;
             border-radius: 50%;
@@ -650,9 +1024,10 @@
         /* ── Marauder's Map Closing Sequence ── */
         .map-sequence {
             position: relative;
-            height: 400vh;
+            height: 500vh;
             background: linear-gradient(175deg, #f5e6c8 0%, #e8d5b0 40%, #f0e0c0 100%);
         }
+
         .map-sticky {
             position: sticky;
             top: 0;
@@ -663,6 +1038,7 @@
             justify-content: center;
             overflow: hidden;
         }
+
         .marauders-map {
             position: relative;
             width: min(85vw, 440px);
@@ -671,57 +1047,129 @@
             will-change: transform;
             perspective: 800px;
         }
+
         .map-outer {
             width: 100%;
             height: 100%;
             position: relative;
             transform-style: preserve-3d;
-            border-radius: 6px;
-            box-shadow: 0 8px 40px rgba(30,15,5,0.35);
+            box-shadow: 0 8px 40px rgba(30, 15, 5, 0.35);
         }
+
         .map-face {
             position: absolute;
             inset: 0;
-            border-radius: 6px;
             backface-visibility: hidden;
+            clip-path: url(#roughMap);
         }
+
         .map-front {
             overflow: hidden;
         }
+
         .map-image {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 6px;
             display: block;
         }
-        .map-fold-top, .map-fold-bottom {
+
+        .map-fold-top,
+        .map-fold-bottom {
             position: absolute;
-            left: 0; right: 0;
+            left: 0;
+            right: 0;
             height: 50%;
-            background: #d4c4a0;
-            border: 2px solid #a08050;
+            background:
+                repeating-linear-gradient(2deg,
+                    transparent 0px, transparent 4px,
+                    rgba(139, 110, 70, 0.04) 4px, rgba(139, 110, 70, 0.04) 5px),
+                repeating-linear-gradient(88deg,
+                    transparent 0px, transparent 6px,
+                    rgba(160, 128, 80, 0.03) 6px, rgba(160, 128, 80, 0.03) 7px),
+                radial-gradient(ellipse at 25% 20%, rgba(180, 155, 110, 0.18) 0%, transparent 55%),
+                radial-gradient(ellipse at 70% 65%, rgba(165, 135, 90, 0.14) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 45%, rgba(200, 175, 130, 0.10) 0%, transparent 60%),
+                radial-gradient(ellipse at 15% 75%, rgba(140, 115, 75, 0.12) 0%, transparent 40%),
+                radial-gradient(ellipse at 85% 30%, rgba(155, 125, 80, 0.10) 0%, transparent 45%),
+                linear-gradient(172deg, #d8c8a2 0%, #c8b890 25%, #d2c49c 50%, #c4b488 75%, #d0c098 100%);
             transform-origin: center;
             will-change: transform;
             z-index: 2;
             overflow: hidden;
+            box-shadow: inset 0 0 20px rgba(120, 90, 50, 0.12);
         }
+
         .map-fold-top {
             top: 0;
-            border-radius: 6px 6px 0 0;
             transform-origin: bottom center;
-            border-bottom: 1px solid #b09060;
+            clip-path: url(#roughFoldTop);
+            border-bottom: 1px solid rgba(160, 128, 80, 0.4);
         }
+
         .map-fold-bottom {
             bottom: 0;
-            border-radius: 0 0 6px 6px;
             transform-origin: top center;
-            border-top: 1px solid #b09060;
+            clip-path: url(#roughFoldBottom);
+            border-top: 1px solid rgba(160, 128, 80, 0.4);
         }
-        .map-fold-top, .map-fold-bottom {
+
+        .map-fold-top,
+        .map-fold-bottom {
             opacity: 0;
             pointer-events: none;
         }
+
+        .map-fold-left,
+        .map-fold-right {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 50%;
+            background:
+                repeating-linear-gradient(3deg,
+                    transparent 0px, transparent 5px,
+                    rgba(139, 110, 70, 0.035) 5px, rgba(139, 110, 70, 0.035) 6px),
+                repeating-linear-gradient(91deg,
+                    transparent 0px, transparent 7px,
+                    rgba(160, 128, 80, 0.025) 7px, rgba(160, 128, 80, 0.025) 8px),
+                radial-gradient(ellipse at 35% 25%, rgba(180, 155, 110, 0.16) 0%, transparent 55%),
+                radial-gradient(ellipse at 65% 70%, rgba(165, 135, 90, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(200, 175, 130, 0.08) 0%, transparent 60%),
+                linear-gradient(168deg, #d6c6a0 0%, #c6b48e 30%, #d0c298 55%, #c2b286 80%, #cebe96 100%);
+            will-change: transform;
+            z-index: 4;
+            overflow: hidden;
+            box-shadow: inset 0 0 18px rgba(120, 90, 50, 0.10);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .map-fold-left {
+            left: 0;
+            transform-origin: right center;
+            clip-path: url(#roughFoldLeft);
+        }
+
+        .map-fold-right {
+            right: 0;
+            transform-origin: left center;
+            clip-path: url(#roughFoldRight);
+        }
+
+        .map-crease {
+            position: absolute;
+            left: 2%;
+            right: 2%;
+            top: 50%;
+            height: 0;
+            border-top: 1.5px solid rgba(100, 75, 40, 0.35);
+            box-shadow: 0 1px 2px rgba(80, 60, 30, 0.15), 0 -1px 1px rgba(255, 240, 210, 0.2);
+            z-index: 5;
+            opacity: 0;
+            pointer-events: none;
+        }
+
         .mischief-managed {
             position: absolute;
             top: 50%;
@@ -736,10 +1184,12 @@
             z-index: 10;
             text-align: center;
         }
+
         .final-message {
             position: absolute;
             bottom: 18vh;
-            left: 0; right: 0;
+            left: 0;
+            right: 0;
             text-align: center;
             font-family: 'MaraudersMap', serif;
             font-size: clamp(1.1rem, 3.2vw, 1.55rem);
@@ -752,6 +1202,7 @@
             z-index: 20;
             padding: 0 20px;
         }
+
         .final-message.visible {
             opacity: 1;
             transform: translateY(0);
@@ -763,12 +1214,14 @@
             padding: 60px 24px 50px;
             background: #1a0e08;
         }
+
         .signoff {
             font-style: italic;
             color: #8a7050;
             font-size: 1.05rem;
             margin-bottom: 20px;
         }
+
         .footer-domain {
             font-family: 'MaraudersMap', serif;
             color: #a08040;
@@ -780,31 +1233,52 @@
         /* ── Floating Candles (letter bg) ── */
         .candle-layer {
             position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             pointer-events: none;
             z-index: 0;
             opacity: 0;
             transition: opacity 0.8s ease;
         }
-        .candle-layer.active { opacity: 1; }
+
+        .candle-layer.active {
+            opacity: 1;
+        }
+
         .floating-candle {
             position: absolute;
             bottom: -100px;
             will-change: transform;
             animation: candle-float var(--dur) linear var(--delay) infinite;
         }
+
         @keyframes candle-float {
-            0%   { transform: translateY(0) translateX(0); }
-            100% { transform: translateY(calc(-100vh - 140px)) translateX(var(--drift)); }
+            0% {
+                transform: translateY(0) translateX(0);
+            }
+
+            100% {
+                transform: translateY(calc(-100vh - 140px)) translateX(var(--drift));
+            }
         }
+
         .candle-flame {
             animation: flame-flicker 0.35s ease-in-out infinite alternate;
             transform-origin: center bottom;
         }
+
         @keyframes flame-flicker {
-            0%   { transform: scale(1, 1); opacity: 0.9; }
-            100% { transform: scale(0.8, 1.15); opacity: 0.7; }
+            0% {
+                transform: scale(1, 1);
+                opacity: 0.9;
+            }
+
+            100% {
+                transform: scale(0.8, 1.15);
+                opacity: 0.7;
+            }
         }
 
         /* ── Stage Candles (Great Hall) ── */
@@ -816,1200 +1290,1678 @@
             animation: candle-bob var(--bob-dur, 3s) ease-in-out var(--bob-delay, 0s) infinite alternate;
             transition: opacity 0.8s ease;
         }
+
         @keyframes candle-bob {
-            0%   { transform: translateY(0) translateX(0); }
-            100% { transform: translateY(var(--bob-y, -12px)) translateX(var(--bob-x, 4px)); }
+            0% {
+                transform: translateY(0) translateX(0);
+            }
+
+            100% {
+                transform: translateY(var(--bob-y, -12px)) translateX(var(--bob-x, 4px));
+            }
         }
 
         /* ── Responsive ── */
         @media (max-width: 768px) {
-            .letter-inner { padding: 60px 24px 40px; }
-            .letter-content h2 { margin: 48px 0 24px; }
-            .envelope { width: 200px; height: 143px; }
+            .letter-inner {
+                padding: 60px 24px 40px;
+            }
+
+            .letter-content h2 {
+                margin: 48px 0 24px;
+            }
+
+            .envelope {
+                width: 200px;
+                height: 143px;
+            }
         }
+
         @media (max-width: 480px) {
-            .letter-inner { padding: 48px 18px 32px; }
-            .envelope { width: 160px; height: 114px; }
+            .letter-inner {
+                padding: 48px 18px 32px;
+            }
+
+            .envelope {
+                width: 160px;
+                height: 114px;
+            }
         }
     </style>
 </head>
+
 <body>
 
-<!-- ═══════════ INTRO ANIMATION ═══════════ -->
-<div class="intro-spacer">
-    <div class="stage" id="stage">
+    <!-- ═══════════ INTRO ANIMATION ═══════════ -->
+    <div class="intro-spacer">
+        <div class="stage" id="stage">
 
-        <!-- Owl -->
-        <div class="owl-wrap" id="owl">
-            <svg viewBox="0 0 500 520" width="460" height="478" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Left Wing -->
-                <g class="wing-l">
-                    <path d="M210,195 Q170,140 100,130 Q50,128 20,170 Q5,210 15,260 Q30,300 70,310 Q120,315 170,280 Q200,255 210,220Z" fill="#f0ebe4" stroke="#d8d0c4" stroke-width="1"/>
-                    <path d="M190,200 Q150,160 90,155" fill="none" stroke="#e0d8cc" stroke-width="1.5"/>
-                    <path d="M185,220 Q140,185 80,185" fill="none" stroke="#e0d8cc" stroke-width="1.5"/>
-                    <path d="M180,240 Q135,215 75,220" fill="none" stroke="#e0d8cc" stroke-width="1.5"/>
-                    <path d="M170,260 Q130,240 75,250" fill="none" stroke="#e0d8cc" stroke-width="1.5"/>
-                    <path d="M30,175 Q25,190 30,205" fill="none" stroke="#888" stroke-width="1.5" stroke-linecap="round"/>
-                    <path d="M45,160 Q38,175 42,192" fill="none" stroke="#888" stroke-width="1.5" stroke-linecap="round"/>
-                    <path d="M62,148 Q54,165 58,182" fill="none" stroke="#888" stroke-width="1.5" stroke-linecap="round"/>
-                    <path d="M80,140 Q72,155 76,170" fill="none" stroke="#777" stroke-width="1.2" stroke-linecap="round"/>
-                </g>
-                <!-- Right Wing -->
-                <g class="wing-r">
-                    <path d="M290,195 Q330,140 400,130 Q450,128 480,170 Q495,210 485,260 Q470,300 430,310 Q380,315 330,280 Q300,255 290,220Z" fill="#f0ebe4" stroke="#d8d0c4" stroke-width="1"/>
-                    <path d="M310,200 Q350,160 410,155" fill="none" stroke="#e0d8cc" stroke-width="1.5"/>
-                    <path d="M315,220 Q360,185 420,185" fill="none" stroke="#e0d8cc" stroke-width="1.5"/>
-                    <path d="M320,240 Q365,215 425,220" fill="none" stroke="#e0d8cc" stroke-width="1.5"/>
-                    <path d="M330,260 Q370,240 425,250" fill="none" stroke="#e0d8cc" stroke-width="1.5"/>
-                    <path d="M470,175 Q475,190 470,205" fill="none" stroke="#888" stroke-width="1.5" stroke-linecap="round"/>
-                    <path d="M455,160 Q462,175 458,192" fill="none" stroke="#888" stroke-width="1.5" stroke-linecap="round"/>
-                    <path d="M438,148 Q446,165 442,182" fill="none" stroke="#888" stroke-width="1.5" stroke-linecap="round"/>
-                    <path d="M420,140 Q428,155 424,170" fill="none" stroke="#777" stroke-width="1.2" stroke-linecap="round"/>
-                </g>
-                <!-- Tail feathers -->
-                <path d="M220,400 L210,440 L225,425 L240,445 L250,420 L260,445 L275,425 L290,440 L280,400" fill="#f0ebe4" stroke="#d8d0c4" stroke-width="1"/>
-                <line x1="230" y1="410" x2="232" y2="435" stroke="#999" stroke-width="1"/>
-                <line x1="250" y1="408" x2="250" y2="438" stroke="#999" stroke-width="1"/>
-                <line x1="270" y1="410" x2="268" y2="435" stroke="#999" stroke-width="1"/>
-                <!-- Body -->
-                <ellipse cx="250" cy="310" rx="70" ry="95" fill="#f5f0e8" stroke="#e8e0d4" stroke-width="1"/>
-                <!-- Body feather streaks -->
-                <line x1="225" y1="280" x2="227" y2="298" stroke="#666" stroke-width="1.2" stroke-linecap="round"/>
-                <line x1="240" y1="285" x2="241" y2="300" stroke="#666" stroke-width="1.2" stroke-linecap="round"/>
-                <line x1="258" y1="283" x2="259" y2="300" stroke="#666" stroke-width="1.2" stroke-linecap="round"/>
-                <line x1="273" y1="280" x2="275" y2="298" stroke="#666" stroke-width="1.2" stroke-linecap="round"/>
-                <line x1="230" y1="310" x2="232" y2="328" stroke="#555" stroke-width="1" stroke-linecap="round"/>
-                <line x1="248" y1="315" x2="249" y2="332" stroke="#555" stroke-width="1" stroke-linecap="round"/>
-                <line x1="265" y1="312" x2="267" y2="330" stroke="#555" stroke-width="1" stroke-linecap="round"/>
-                <line x1="218" y1="340" x2="220" y2="355" stroke="#555" stroke-width="1" stroke-linecap="round"/>
-                <line x1="238" y1="345" x2="239" y2="360" stroke="#555" stroke-width="1" stroke-linecap="round"/>
-                <line x1="260" y1="343" x2="261" y2="358" stroke="#555" stroke-width="1" stroke-linecap="round"/>
-                <line x1="278" y1="338" x2="280" y2="353" stroke="#555" stroke-width="1" stroke-linecap="round"/>
-                <!-- Chest feather arcs -->
-                <path d="M220,260 Q250,252 280,260" fill="none" stroke="#e0d8cc" stroke-width="1"/>
-                <path d="M215,275 Q250,265 285,275" fill="none" stroke="#e0d8cc" stroke-width="1"/>
-                <!-- Head -->
-                <circle cx="250" cy="155" r="65" fill="#f5f0e8" stroke="#e8e0d4" stroke-width="1"/>
-                <!-- Facial disc -->
-                <path d="M195,140 Q250,108 305,140 Q312,165 305,185 Q280,208 250,212 Q220,208 195,185 Q188,165 195,140Z" fill="#e2d8c8" stroke="#d4c8b4" stroke-width="0.8"/>
-                <!-- Feather V-marks on forehead -->
-                <path d="M218,118 L225,106 L232,118" fill="none" stroke="#6a6050" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M235,112 L242,100 L249,112" fill="none" stroke="#6a6050" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M251,112 L258,100 L265,112" fill="none" stroke="#6a6050" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M268,118 L275,106 L282,118" fill="none" stroke="#6a6050" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M225,128 L231,118 L237,128" fill="none" stroke="#7a7060" stroke-width="1.5" stroke-linecap="round"/>
-                <path d="M263,128 L269,118 L275,128" fill="none" stroke="#7a7060" stroke-width="1.5" stroke-linecap="round"/>
-                <!-- Eye rings (dark circles around eyes) -->
-                <circle cx="220" cy="152" r="26" fill="#d4cabb" stroke="#c0b4a0" stroke-width="0.8"/>
-                <circle cx="280" cy="152" r="26" fill="#d4cabb" stroke="#c0b4a0" stroke-width="0.8"/>
-                <!-- Eyes -->
-                <circle cx="220" cy="152" r="20" fill="#e8d000" stroke="#222" stroke-width="2.5"/>
-                <circle cx="280" cy="152" r="20" fill="#e8d000" stroke="#222" stroke-width="2.5"/>
-                <!-- Pupils -->
-                <circle cx="220" cy="152" r="10" fill="#111"/>
-                <circle cx="280" cy="152" r="10" fill="#111"/>
-                <!-- Eye highlights -->
-                <circle cx="213" cy="145" r="4" fill="#fff" opacity="0.85"/>
-                <circle cx="273" cy="145" r="4" fill="#fff" opacity="0.85"/>
-                <circle cx="224" cy="158" r="2" fill="#fff" opacity="0.5"/>
-                <circle cx="284" cy="158" r="2" fill="#fff" opacity="0.5"/>
-                <!-- Beak -->
-                <path d="M243,178 L250,195 L257,178Z" fill="#6a6560" stroke="#5a5550" stroke-width="0.8"/>
-                <!-- Ear tufts -->
-                <path d="M196,108 Q188,85 200,92 Q196,100 196,108Z" fill="#e8e0d4"/>
-                <path d="M304,108 Q312,85 300,92 Q304,100 304,108Z" fill="#e8e0d4"/>
-                <!-- Owl's held envelope -->
-                <g class="owl-letter">
-                    <rect x="195" y="395" width="110" height="75" rx="4" fill="#d4a84c" stroke="#b8942f" stroke-width="1.5"/>
-                    <path d="M195,395 L250,438 L305,395" fill="none" stroke="#b8942f" stroke-width="1.2"/>
-                    <path d="M195,470 L235,440" fill="none" stroke="#c9a040" stroke-width="0.8" opacity="0.5"/>
-                    <path d="M305,470 L265,440" fill="none" stroke="#c9a040" stroke-width="0.8" opacity="0.5"/>
-                    <path d="M250,430 C253,429.2 256,430 259,433 C261,435.5 261.5,438 261,441 C260.5,444 258.5,447 256,449 C253.5,451 250.5,451.2 248,450.5 C245,449.5 242,447.5 240.5,444.5 C239,441.5 239,438.5 239.5,436 C240,433.5 242,431.5 244.5,430.5 C247,429.5 248.5,429.5 250,430Z" fill="#8b1a1a"/>
-                    <path d="M250,430 C253,429.2 256,430 259,433 C261,435.5 261.5,438 261,441 C260.5,444 258.5,447 256,449 C253.5,451 250.5,451.2 248,450.5 C245,449.5 242,447.5 240.5,444.5 C239,441.5 239,438.5 239.5,436 C240,433.5 242,431.5 244.5,430.5 C247,429.5 248.5,429.5 250,430Z" fill="url(#owlSealGrad)"/>
-                    <path d="M250,432.8 C252.5,432 255,432.8 257,434.8 C258.5,436.5 259,438.5 258.5,441 C258,443 256.5,445.5 254.5,446.5 C252.5,447.5 250,447.8 248,447 C246,446 244,444.2 243.2,442 C242.5,439.8 242.8,437.5 243.8,435.5 C244.8,433.5 247,432.5 250,432.8Z" fill="none" stroke="#d4a84c" stroke-width="0.5" opacity="0.5"/>
-                    <text x="250" y="444" text-anchor="middle" font-family="MaraudersMap,serif" font-size="9" fill="#d4a84c" font-weight="bold">M</text>
-                    <defs>
-                        <radialGradient id="owlSealGrad" cx="35%" cy="35%">
-                            <stop offset="0%" stop-color="#b02525"/>
-                            <stop offset="60%" stop-color="#8b1a1a"/>
-                            <stop offset="100%" stop-color="#5a0e0e"/>
-                        </radialGradient>
-                    </defs>
-                </g>
-                <!-- Talons -->
-                <path d="M225,405 Q220,415 215,430 Q218,428 222,432 Q224,425 228,435 Q229,425 233,430 Q232,418 228,405" fill="#7a7065" stroke="#5a5550" stroke-width="0.6"/>
-                <path d="M275,405 Q280,415 285,430 Q282,428 278,432 Q276,425 272,435 Q271,425 267,430 Q268,418 272,405" fill="#7a7065" stroke="#5a5550" stroke-width="0.6"/>
-            </svg>
-        </div>
-
-        <!-- Standalone Envelope (appears after owl drops it) -->
-        <div class="envelope-wrap" id="envelope-wrap">
-            <div class="envelope" id="envelope">
-                <div class="env-back"></div>
-                <div class="env-front env-chrome"></div>
-                <div class="env-fold-left env-chrome"></div>
-                <div class="env-fold-right env-chrome"></div>
-                <div class="env-flap" id="env-flap"></div>
-                <svg class="env-seal" id="env-seal" viewBox="0 0 40 40">
-                    <defs>
-                        <radialGradient id="sealGrad" cx="35%" cy="30%">
-                            <stop offset="0%" stop-color="#c03030"/>
-                            <stop offset="40%" stop-color="#a02020"/>
-                            <stop offset="100%" stop-color="#5a0e0e"/>
-                        </radialGradient>
-                        <filter id="sealShadow" x="-20%" y="-20%" width="140%" height="140%">
-                            <feDropShadow dx="0.5" dy="1" stdDeviation="1" flood-color="#2a0505" flood-opacity="0.5"/>
-                        </filter>
-                    </defs>
-                    <path d="M20,1.5 C23.5,0.5 27.5,2 30.5,4.5 C33.5,7 36,9.5 37.5,13.5 C39,17.5 39.2,20 38.5,24 C37.5,28 36,31.5 33,34 C30,36.5 27,38.5 23,38.8 C19,39 15.5,38 12,35.5 C8.5,33 5.5,30 3.8,26 C2,22 1.2,18.5 2,14.5 C2.8,10.5 5,7 8,4.5 C11,2 14.5,0.8 17.5,1 C18.5,1.1 19,1.8 20,1.5Z" fill="#8b1a1a" filter="url(#sealShadow)"/>
-                    <path d="M20,1.5 C23.5,0.5 27.5,2 30.5,4.5 C33.5,7 36,9.5 37.5,13.5 C39,17.5 39.2,20 38.5,24 C37.5,28 36,31.5 33,34 C30,36.5 27,38.5 23,38.8 C19,39 15.5,38 12,35.5 C8.5,33 5.5,30 3.8,26 C2,22 1.2,18.5 2,14.5 C2.8,10.5 5,7 8,4.5 C11,2 14.5,0.8 17.5,1 C18.5,1.1 19,1.8 20,1.5Z" fill="url(#sealGrad)"/>
-                    <path d="M20,5.5 C23,4.5 26.5,5.5 29,8 C31.5,10.5 33,13 33.5,16.5 C34,20 34,23 32.5,26.5 C31,29.5 28.5,32 25.5,33 C22.5,34 19.5,34.2 16.5,33 C13.5,31.5 11,29 9,26 C7,23 6.5,19.5 7,16 C7.5,12.5 9.5,9.5 12,7.5 C14.5,5.5 17,5.2 20,5.5Z" fill="none" stroke="#d4a84c" stroke-width="0.5" opacity="0.45"/>
-                    <text x="20" y="25" text-anchor="middle" font-family="MaraudersMap,serif" font-size="14" fill="#d4a84c" opacity="0.8">M</text>
-                </svg>
-            </div>
-        </div>
-
-        <!-- Parchment overlay for smooth transition -->
-        <div class="parchment-overlay" id="parchment-overlay"></div>
-
-        <!-- Scroll indicator -->
-        <div class="scroll-hint" id="scroll-hint">
-            scroll
-            <span class="arrow"></span>
-        </div>
-    </div>
-</div>
-
-<!-- ═══════════ LETTER CONTENT ═══════════ -->
-<div class="letter-content" id="letter-content">
-    <div class="candle-layer" id="candle-layer"></div>
-    <div class="letter-inner">
-
-        <div class="salutation" data-reveal>Dear Ali,</div>
-
-        <!-- The Boy Who Read + Ali on broomstick flyby -->
-        <h2>The Boy Who Read</h2>
-        <div class="broom-scene" id="broom-scene">
-            <div class="broom-text-overlay">
-                <div class="ink-reveal" data-reveal>
-                    <p>Years ago, you crossed an ocean and landed in a new world — not unlike a first-year stepping off the Hogwarts Express into something vast and unfamiliar. You didn't have a spellbook for American life, so you found the next best thing: Harry Potter. Page by page, chapter by chapter, you learned the language of your new home through the language of magic.</p>
-                    <p>It was never just about the words. It was about the courage it takes to start over — to build something from nothing in a place where nothing is familiar, and to believe that the story gets better if you keep turning pages. And it did.</p>
-                    <p>At Insito, you didn't just join a team — you made it sharper, warmer, and braver. You brought the same quiet determination that once carried you across the world to every problem you tackled, every feature you shipped, every teammate you lifted up.</p>
-                </div>
-            </div>
-            <div class="broom-rider" id="broom-rider">
-                <svg viewBox="0 0 360 165" width="300" height="137" fill="#3d2515" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Broom handle -->
-                    <line x1="55" y1="100" x2="330" y2="90" stroke="#8a6840" stroke-width="5" stroke-linecap="round"/>
-                    <!-- Broom wrap -->
-                    <ellipse cx="68" cy="99" rx="9" ry="6" fill="#7a5828"/>
-                    <!-- Bristles -->
-                    <path d="M62,99 Q30,78 8,72 Q12,80 5,84 Q12,88 3,95 Q12,100 3,106 Q12,110 5,116 Q12,118 30,115 Q40,110 62,99Z" fill="#9a7838" stroke="#7a5828" stroke-width="0.5"/>
-                    <line x1="60" y1="94" x2="10" y2="76" stroke="#6a4818" stroke-width="1"/>
-                    <line x1="60" y1="96" x2="6" y2="86" stroke="#6a4818" stroke-width="1"/>
-                    <line x1="60" y1="99" x2="5" y2="97" stroke="#6a4818" stroke-width="1"/>
-                    <line x1="60" y1="101" x2="6" y2="108" stroke="#6a4818" stroke-width="1"/>
-                    <line x1="60" y1="103" x2="10" y2="115" stroke="#6a4818" stroke-width="1"/>
-                    <!-- Robe flowing behind -->
-                    <path d="M145,70 Q125,78 110,98 Q105,118 112,140 Q122,150 135,138 Q145,120 146,98Z" fill="#3d2515" opacity="0.85"/>
-                    <path d="M112,140 Q100,152 94,162 Q106,158 116,146Z" fill="#3d2515" opacity="0.6"/>
-                    <!-- Torso (leaning forward) -->
-                    <path d="M148,64 Q170,58 200,68 L195,98 L143,100Z" fill="#3d2515"/>
-                    <!-- Legs on broom -->
-                    <path d="M158,98 Q163,114 178,120 Q182,114 175,100Z" fill="#3d2515"/>
-                    <path d="M143,100 Q135,114 128,118 Q124,112 133,100Z" fill="#3d2515"/>
-                    <!-- Arm reaching forward -->
-                    <path d="M200,68 Q215,70 232,82 Q235,88 227,90 Q220,84 205,76Z" fill="#3d2515"/>
-                    <circle cx="234" cy="86" r="5" fill="#3d2515"/>
-                    <!-- Neck -->
-                    <path d="M205,58 L216,52 L218,64 L207,67Z" fill="#3d2515"/>
+            <!-- Owl -->
+            <div class="owl-wrap" id="owl">
+                <svg viewBox="0 0 500 520" width="460" height="478" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Left Wing -->
+                    <g class="wing-l">
+                        <path
+                            d="M210,195 Q170,140 100,130 Q50,128 20,170 Q5,210 15,260 Q30,300 70,310 Q120,315 170,280 Q200,255 210,220Z"
+                            fill="#f0ebe4" stroke="#d8d0c4" stroke-width="1" />
+                        <path d="M190,200 Q150,160 90,155" fill="none" stroke="#e0d8cc" stroke-width="1.5" />
+                        <path d="M185,220 Q140,185 80,185" fill="none" stroke="#e0d8cc" stroke-width="1.5" />
+                        <path d="M180,240 Q135,215 75,220" fill="none" stroke="#e0d8cc" stroke-width="1.5" />
+                        <path d="M170,260 Q130,240 75,250" fill="none" stroke="#e0d8cc" stroke-width="1.5" />
+                        <path d="M30,175 Q25,190 30,205" fill="none" stroke="#888" stroke-width="1.5"
+                            stroke-linecap="round" />
+                        <path d="M45,160 Q38,175 42,192" fill="none" stroke="#888" stroke-width="1.5"
+                            stroke-linecap="round" />
+                        <path d="M62,148 Q54,165 58,182" fill="none" stroke="#888" stroke-width="1.5"
+                            stroke-linecap="round" />
+                        <path d="M80,140 Q72,155 76,170" fill="none" stroke="#777" stroke-width="1.2"
+                            stroke-linecap="round" />
+                    </g>
+                    <!-- Right Wing -->
+                    <g class="wing-r">
+                        <path
+                            d="M290,195 Q330,140 400,130 Q450,128 480,170 Q495,210 485,260 Q470,300 430,310 Q380,315 330,280 Q300,255 290,220Z"
+                            fill="#f0ebe4" stroke="#d8d0c4" stroke-width="1" />
+                        <path d="M310,200 Q350,160 410,155" fill="none" stroke="#e0d8cc" stroke-width="1.5" />
+                        <path d="M315,220 Q360,185 420,185" fill="none" stroke="#e0d8cc" stroke-width="1.5" />
+                        <path d="M320,240 Q365,215 425,220" fill="none" stroke="#e0d8cc" stroke-width="1.5" />
+                        <path d="M330,260 Q370,240 425,250" fill="none" stroke="#e0d8cc" stroke-width="1.5" />
+                        <path d="M470,175 Q475,190 470,205" fill="none" stroke="#888" stroke-width="1.5"
+                            stroke-linecap="round" />
+                        <path d="M455,160 Q462,175 458,192" fill="none" stroke="#888" stroke-width="1.5"
+                            stroke-linecap="round" />
+                        <path d="M438,148 Q446,165 442,182" fill="none" stroke="#888" stroke-width="1.5"
+                            stroke-linecap="round" />
+                        <path d="M420,140 Q428,155 424,170" fill="none" stroke="#777" stroke-width="1.2"
+                            stroke-linecap="round" />
+                    </g>
+                    <!-- Tail feathers -->
+                    <path d="M220,400 L210,440 L225,425 L240,445 L250,420 L260,445 L275,425 L290,440 L280,400"
+                        fill="#f0ebe4" stroke="#d8d0c4" stroke-width="1" />
+                    <line x1="230" y1="410" x2="232" y2="435" stroke="#999" stroke-width="1" />
+                    <line x1="250" y1="408" x2="250" y2="438" stroke="#999" stroke-width="1" />
+                    <line x1="270" y1="410" x2="268" y2="435" stroke="#999" stroke-width="1" />
+                    <!-- Body -->
+                    <ellipse cx="250" cy="310" rx="70" ry="95" fill="#f5f0e8" stroke="#e8e0d4" stroke-width="1" />
+                    <!-- Body feather streaks -->
+                    <line x1="225" y1="280" x2="227" y2="298" stroke="#666" stroke-width="1.2" stroke-linecap="round" />
+                    <line x1="240" y1="285" x2="241" y2="300" stroke="#666" stroke-width="1.2" stroke-linecap="round" />
+                    <line x1="258" y1="283" x2="259" y2="300" stroke="#666" stroke-width="1.2" stroke-linecap="round" />
+                    <line x1="273" y1="280" x2="275" y2="298" stroke="#666" stroke-width="1.2" stroke-linecap="round" />
+                    <line x1="230" y1="310" x2="232" y2="328" stroke="#555" stroke-width="1" stroke-linecap="round" />
+                    <line x1="248" y1="315" x2="249" y2="332" stroke="#555" stroke-width="1" stroke-linecap="round" />
+                    <line x1="265" y1="312" x2="267" y2="330" stroke="#555" stroke-width="1" stroke-linecap="round" />
+                    <line x1="218" y1="340" x2="220" y2="355" stroke="#555" stroke-width="1" stroke-linecap="round" />
+                    <line x1="238" y1="345" x2="239" y2="360" stroke="#555" stroke-width="1" stroke-linecap="round" />
+                    <line x1="260" y1="343" x2="261" y2="358" stroke="#555" stroke-width="1" stroke-linecap="round" />
+                    <line x1="278" y1="338" x2="280" y2="353" stroke="#555" stroke-width="1" stroke-linecap="round" />
+                    <!-- Chest feather arcs -->
+                    <path d="M220,260 Q250,252 280,260" fill="none" stroke="#e0d8cc" stroke-width="1" />
+                    <path d="M215,275 Q250,265 285,275" fill="none" stroke="#e0d8cc" stroke-width="1" />
                     <!-- Head -->
-                    <circle cx="226" cy="42" r="20" fill="#3d2515"/>
-                    <!-- Curly hair -->
-                    <circle cx="215" cy="24" r="8" fill="#3d2515"/>
-                    <circle cx="226" cy="22" r="7" fill="#3d2515"/>
-                    <circle cx="236" cy="24" r="7" fill="#3d2515"/>
-                    <circle cx="210" cy="32" r="6" fill="#3d2515"/>
-                    <circle cx="240" cy="32" r="5" fill="#3d2515"/>
-                    <!-- Hair blowing back -->
-                    <circle cx="204" cy="30" r="5" fill="#3d2515"/>
-                    <circle cx="200" cy="36" r="4" fill="#3d2515"/>
-                    <!-- Beard -->
-                    <ellipse cx="238" cy="52" rx="7" ry="9" fill="#3d2515"/>
-                    <ellipse cx="242" cy="60" rx="5" ry="6" fill="#3d2515"/>
-                    <!-- Scarf flowing behind -->
-                    <path d="M215,56 Q195,48 178,52 Q175,58 183,55 Q200,50 213,58Z" fill="#6b4423" opacity="0.8"/>
-                    <path d="M178,52 Q165,50 158,54 Q162,58 168,55Z" fill="#6b4423" opacity="0.6"/>
+                    <circle cx="250" cy="155" r="65" fill="#f5f0e8" stroke="#e8e0d4" stroke-width="1" />
+                    <!-- Facial disc -->
+                    <path
+                        d="M195,140 Q250,108 305,140 Q312,165 305,185 Q280,208 250,212 Q220,208 195,185 Q188,165 195,140Z"
+                        fill="#e2d8c8" stroke="#d4c8b4" stroke-width="0.8" />
+                    <!-- Feather V-marks on forehead -->
+                    <path d="M218,118 L225,106 L232,118" fill="none" stroke="#6a6050" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M235,112 L242,100 L249,112" fill="none" stroke="#6a6050" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M251,112 L258,100 L265,112" fill="none" stroke="#6a6050" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M268,118 L275,106 L282,118" fill="none" stroke="#6a6050" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M225,128 L231,118 L237,128" fill="none" stroke="#7a7060" stroke-width="1.5"
+                        stroke-linecap="round" />
+                    <path d="M263,128 L269,118 L275,128" fill="none" stroke="#7a7060" stroke-width="1.5"
+                        stroke-linecap="round" />
+                    <!-- Eye rings (dark circles around eyes) -->
+                    <circle cx="220" cy="152" r="26" fill="#d4cabb" stroke="#c0b4a0" stroke-width="0.8" />
+                    <circle cx="280" cy="152" r="26" fill="#d4cabb" stroke="#c0b4a0" stroke-width="0.8" />
+                    <!-- Eyes -->
+                    <circle cx="220" cy="152" r="20" fill="#e8d000" stroke="#222" stroke-width="2.5" />
+                    <circle cx="280" cy="152" r="20" fill="#e8d000" stroke="#222" stroke-width="2.5" />
+                    <!-- Pupils -->
+                    <circle cx="220" cy="152" r="10" fill="#111" />
+                    <circle cx="280" cy="152" r="10" fill="#111" />
+                    <!-- Eye highlights -->
+                    <circle cx="213" cy="145" r="4" fill="#fff" opacity="0.85" />
+                    <circle cx="273" cy="145" r="4" fill="#fff" opacity="0.85" />
+                    <circle cx="224" cy="158" r="2" fill="#fff" opacity="0.5" />
+                    <circle cx="284" cy="158" r="2" fill="#fff" opacity="0.5" />
+                    <!-- Beak -->
+                    <path d="M243,178 L250,195 L257,178Z" fill="#6a6560" stroke="#5a5550" stroke-width="0.8" />
+                    <!-- Ear tufts -->
+                    <path d="M196,108 Q188,85 200,92 Q196,100 196,108Z" fill="#e8e0d4" />
+                    <path d="M304,108 Q312,85 300,92 Q304,100 304,108Z" fill="#e8e0d4" />
+                    <!-- Owl's held envelope -->
+                    <g class="owl-letter">
+                        <rect x="195" y="395" width="110" height="75" rx="4" fill="#d4a84c" stroke="#b8942f"
+                            stroke-width="1.5" />
+                        <path d="M195,395 L250,438 L305,395" fill="none" stroke="#b8942f" stroke-width="1.2" />
+                        <path d="M195,470 L235,440" fill="none" stroke="#c9a040" stroke-width="0.8" opacity="0.5" />
+                        <path d="M305,470 L265,440" fill="none" stroke="#c9a040" stroke-width="0.8" opacity="0.5" />
+                        <path
+                            d="M250,430 C253,429.2 256,430 259,433 C261,435.5 261.5,438 261,441 C260.5,444 258.5,447 256,449 C253.5,451 250.5,451.2 248,450.5 C245,449.5 242,447.5 240.5,444.5 C239,441.5 239,438.5 239.5,436 C240,433.5 242,431.5 244.5,430.5 C247,429.5 248.5,429.5 250,430Z"
+                            fill="#8b1a1a" />
+                        <path
+                            d="M250,430 C253,429.2 256,430 259,433 C261,435.5 261.5,438 261,441 C260.5,444 258.5,447 256,449 C253.5,451 250.5,451.2 248,450.5 C245,449.5 242,447.5 240.5,444.5 C239,441.5 239,438.5 239.5,436 C240,433.5 242,431.5 244.5,430.5 C247,429.5 248.5,429.5 250,430Z"
+                            fill="url(#owlSealGrad)" />
+                        <path
+                            d="M250,432.8 C252.5,432 255,432.8 257,434.8 C258.5,436.5 259,438.5 258.5,441 C258,443 256.5,445.5 254.5,446.5 C252.5,447.5 250,447.8 248,447 C246,446 244,444.2 243.2,442 C242.5,439.8 242.8,437.5 243.8,435.5 C244.8,433.5 247,432.5 250,432.8Z"
+                            fill="none" stroke="#d4a84c" stroke-width="0.5" opacity="0.5" />
+                        <text x="250" y="444" text-anchor="middle" font-family="MaraudersMap,serif" font-size="9"
+                            fill="#d4a84c" font-weight="bold">M</text>
+                        <defs>
+                            <radialGradient id="owlSealGrad" cx="35%" cy="35%">
+                                <stop offset="0%" stop-color="#b02525" />
+                                <stop offset="60%" stop-color="#8b1a1a" />
+                                <stop offset="100%" stop-color="#5a0e0e" />
+                            </radialGradient>
+                        </defs>
+                    </g>
+                    <!-- Talons -->
+                    <path
+                        d="M225,405 Q220,415 215,430 Q218,428 222,432 Q224,425 228,435 Q229,425 233,430 Q232,418 228,405"
+                        fill="#7a7065" stroke="#5a5550" stroke-width="0.6" />
+                    <path
+                        d="M275,405 Q280,415 285,430 Q282,428 278,432 Q276,425 272,435 Q271,425 267,430 Q268,418 272,405"
+                        fill="#7a7065" stroke="#5a5550" stroke-width="0.6" />
                 </svg>
             </div>
-        </div>
 
-        <div class="letter-divider">
-            <svg width="180" height="16" viewBox="0 0 180 16"><line x1="0" y1="8" x2="75" y2="8" stroke="#c9a84c" stroke-width="0.6"/><polygon points="90,1 97,8 90,15 83,8" stroke="#c9a84c" stroke-width="0.8" fill="none"/><line x1="105" y1="8" x2="180" y2="8" stroke="#c9a84c" stroke-width="0.6"/></svg>
-        </div>
-
-        <!-- The Spells He Cast (scroll-driven, one spell at a time) -->
-        <div class="spells-section" id="spells-section">
-            <div class="spells-sticky" id="spells-sticky">
-                <h2 class="spells-title">The Spells He Cast</h2>
-                <div class="spell-entry" data-spell="Buildulus Rapidus" data-side="left" data-wand="0">
-                    <div class="spell-name">Buildulus Rapidus</div>
-                    <p class="spell-desc">Shipped features at a pace that left the rest of us wondering if he'd discovered a Time-Turner. [CUSTOMIZE: Add a specific feature or project Ali shipped quickly.]</p>
-                </div>
-                <div class="spell-entry" data-spell="Mentorus Maxima" data-side="right" data-wand="1">
-                    <div class="spell-name">Mentorus Maxima</div>
-                    <p class="spell-desc">Elevated everyone around him — code reviews that taught, conversations that clarified, patience that inspired. [CUSTOMIZE: Add a specific mentoring moment.]</p>
-                </div>
-                <div class="spell-entry" data-spell="Debuggio Totalum" data-side="left" data-wand="2">
-                    <div class="spell-name">Debuggio Totalum</div>
-                    <p class="spell-desc">Could trace a bug through six layers of abstraction before the rest of the team had finished reading the error message. [CUSTOMIZE: Add a memorable debugging story.]</p>
-                </div>
-                <div class="spell-entry" data-spell="Architectura Elegans" data-side="right" data-wand="3">
-                    <div class="spell-name">Architectura Elegans</div>
-                    <p class="spell-desc">Designed systems that were clean enough to understand on Monday morning and robust enough to survive Friday deploys. [CUSTOMIZE: Name a system or architecture Ali designed.]</p>
-                </div>
-                <div class="spell-entry" data-spell="Risus Perpetua" data-side="left" data-wand="4">
-                    <div class="spell-name">Risus Perpetua</div>
-                    <p class="spell-desc">Made even the hardest sprints bearable with well-timed humor and an irrepressible spirit. The team was never the same without his laugh in the room. [CUSTOMIZE: Add a favorite Ali moment.]</p>
+            <!-- Standalone Envelope (appears after owl drops it) -->
+            <div class="envelope-wrap" id="envelope-wrap">
+                <div class="envelope" id="envelope">
+                    <div class="env-back"></div>
+                    <div class="env-front env-chrome"></div>
+                    <div class="env-fold-left env-chrome"></div>
+                    <div class="env-fold-right env-chrome"></div>
+                    <div class="env-flap" id="env-flap"></div>
+                    <svg class="env-seal" id="env-seal" viewBox="0 0 40 40">
+                        <defs>
+                            <radialGradient id="sealGrad" cx="35%" cy="30%">
+                                <stop offset="0%" stop-color="#c03030" />
+                                <stop offset="40%" stop-color="#a02020" />
+                                <stop offset="100%" stop-color="#5a0e0e" />
+                            </radialGradient>
+                            <filter id="sealShadow" x="-20%" y="-20%" width="140%" height="140%">
+                                <feDropShadow dx="0.5" dy="1" stdDeviation="1" flood-color="#2a0505"
+                                    flood-opacity="0.5" />
+                            </filter>
+                        </defs>
+                        <path
+                            d="M20,1.5 C23.5,0.5 27.5,2 30.5,4.5 C33.5,7 36,9.5 37.5,13.5 C39,17.5 39.2,20 38.5,24 C37.5,28 36,31.5 33,34 C30,36.5 27,38.5 23,38.8 C19,39 15.5,38 12,35.5 C8.5,33 5.5,30 3.8,26 C2,22 1.2,18.5 2,14.5 C2.8,10.5 5,7 8,4.5 C11,2 14.5,0.8 17.5,1 C18.5,1.1 19,1.8 20,1.5Z"
+                            fill="#8b1a1a" filter="url(#sealShadow)" />
+                        <path
+                            d="M20,1.5 C23.5,0.5 27.5,2 30.5,4.5 C33.5,7 36,9.5 37.5,13.5 C39,17.5 39.2,20 38.5,24 C37.5,28 36,31.5 33,34 C30,36.5 27,38.5 23,38.8 C19,39 15.5,38 12,35.5 C8.5,33 5.5,30 3.8,26 C2,22 1.2,18.5 2,14.5 C2.8,10.5 5,7 8,4.5 C11,2 14.5,0.8 17.5,1 C18.5,1.1 19,1.8 20,1.5Z"
+                            fill="url(#sealGrad)" />
+                        <path
+                            d="M20,5.5 C23,4.5 26.5,5.5 29,8 C31.5,10.5 33,13 33.5,16.5 C34,20 34,23 32.5,26.5 C31,29.5 28.5,32 25.5,33 C22.5,34 19.5,34.2 16.5,33 C13.5,31.5 11,29 9,26 C7,23 6.5,19.5 7,16 C7.5,12.5 9.5,9.5 12,7.5 C14.5,5.5 17,5.2 20,5.5Z"
+                            fill="none" stroke="#d4a84c" stroke-width="0.5" opacity="0.45" />
+                        <text x="20" y="25" text-anchor="middle" font-family="MaraudersMap,serif" font-size="14"
+                            fill="#d4a84c" opacity="0.8">M</text>
+                    </svg>
                 </div>
             </div>
-        </div>
 
-        <div class="letter-divider">
-            <svg width="180" height="16" viewBox="0 0 180 16"><line x1="0" y1="8" x2="75" y2="8" stroke="#c9a84c" stroke-width="0.6"/><polygon points="90,1 97,8 90,15 83,8" stroke="#c9a84c" stroke-width="0.8" fill="none"/><line x1="105" y1="8" x2="180" y2="8" stroke="#c9a84c" stroke-width="0.6"/></svg>
-        </div>
+            <!-- Parchment overlay for smooth transition -->
+            <div class="parchment-overlay" id="parchment-overlay"></div>
 
-        <!-- The Next Chapter -->
-        <div class="next-chapter-section" id="next-chapter-section">
-        <h2>The Next Chapter</h2>
-        <div class="farewell-block" data-reveal>
-            <p>Every great wizard eventually outgrows Hogwarts. Not because the castle gets smaller, but because they get bigger.</p>
-            <p>Ali, you came to Insito as a colleague and became family. You taught us that the best code is written with empathy, that the hardest problems yield to persistence, and that a well-timed Harry Potter reference can fix almost anything.</p>
-            <p>Now you're stepping into the unknown — founding your own company, writing your own rules, casting your own spells. It's exactly the kind of adventure we'd expect from you.</p>
-        </div>
-        </div>
-
-        <!-- Empty scroll before the reveal -->
-        <div class="magic-spacer" id="magic-spacer"></div>
-
-        <!-- MAGIC → MAGI.ai reveal -->
-        <div class="magic-section" id="magic-section">
-            <div class="fireworks-canvas" id="fireworks-canvas"></div>
-            <p class="magic-lead">Time to make your own</p>
-            <div class="magic-word" aria-label="MAGI.ai">
-                <span class="magic-letter">M</span><span class="magic-letter">A</span><span class="magic-letter">G</span><span class="magic-letter">I</span><span class="magic-c-wrap"><span class="magic-c" id="magic-c">C</span><span class="magic-ai" id="magic-ai">.ai</span></span>
+            <!-- Scroll indicator -->
+            <div class="scroll-hint" id="scroll-hint">
+                scroll
+                <span class="arrow"></span>
             </div>
         </div>
-
     </div>
-</div>
 
-<!-- Marauder's Map Closing Sequence (outside parchment) -->
-<div class="map-sequence" id="map-sequence">
-    <div class="map-sticky" id="map-sticky">
-        <div class="marauders-map" id="marauders-map">
-            <div class="map-outer" id="map-outer">
-                <div class="map-face map-front" id="map-front">
-                    <img src="marauders-map.png" alt="The Marauder's Map" class="map-image"/>
+    <!-- ═══════════ LETTER CONTENT ═══════════ -->
+    <div class="letter-content" id="letter-content">
+        <div class="candle-layer" id="candle-layer"></div>
+        <div class="letter-inner">
+
+            <div class="salutation" data-reveal>Dear Ali,</div>
+
+            <!-- The Boy Who Read + Ali on broomstick flyby -->
+            <h2>The Boy Who Read</h2>
+            <div class="broom-scene" id="broom-scene">
+                <div class="broom-text-overlay">
+                    <div class="ink-reveal revealed">
+                        <p>Years ago, you crossed an ocean and landed in a new world. You didn't have a spellbook for
+                            American life, so you found the next best thing: Harry Potter. Page by page, chapter by
+                            chapter, you learned the language of your new home through the language of magic.</p>
+                    </div>
                 </div>
-                <!-- Fold flaps for closing -->
-                <div class="map-fold-top" id="map-fold-top"></div>
-                <div class="map-fold-bottom" id="map-fold-bottom"></div>
+                <div class="broom-rider" id="broom-rider">
+                    <svg viewBox="0 0 360 165" width="300" height="137" fill="#3d2515"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <!-- Broom handle -->
+                        <line x1="55" y1="100" x2="330" y2="90" stroke="#8a6840" stroke-width="5"
+                            stroke-linecap="round" />
+                        <!-- Broom wrap -->
+                        <ellipse cx="68" cy="99" rx="9" ry="6" fill="#7a5828" />
+                        <!-- Bristles -->
+                        <path
+                            d="M62,99 Q30,78 8,72 Q12,80 5,84 Q12,88 3,95 Q12,100 3,106 Q12,110 5,116 Q12,118 30,115 Q40,110 62,99Z"
+                            fill="#9a7838" stroke="#7a5828" stroke-width="0.5" />
+                        <line x1="60" y1="94" x2="10" y2="76" stroke="#6a4818" stroke-width="1" />
+                        <line x1="60" y1="96" x2="6" y2="86" stroke="#6a4818" stroke-width="1" />
+                        <line x1="60" y1="99" x2="5" y2="97" stroke="#6a4818" stroke-width="1" />
+                        <line x1="60" y1="101" x2="6" y2="108" stroke="#6a4818" stroke-width="1" />
+                        <line x1="60" y1="103" x2="10" y2="115" stroke="#6a4818" stroke-width="1" />
+                        <!-- Robe flowing behind -->
+                        <path d="M145,70 Q125,78 110,98 Q105,118 112,140 Q122,150 135,138 Q145,120 146,98Z"
+                            fill="#3d2515" opacity="0.85" />
+                        <path d="M112,140 Q100,152 94,162 Q106,158 116,146Z" fill="#3d2515" opacity="0.6" />
+                        <!-- Torso (leaning forward) -->
+                        <path d="M148,64 Q170,58 200,68 L195,98 L143,100Z" fill="#3d2515" />
+                        <!-- Legs on broom -->
+                        <path d="M158,98 Q163,114 178,120 Q182,114 175,100Z" fill="#3d2515" />
+                        <path d="M143,100 Q135,114 128,118 Q124,112 133,100Z" fill="#3d2515" />
+                        <!-- Arm reaching forward -->
+                        <path d="M200,68 Q215,70 232,82 Q235,88 227,90 Q220,84 205,76Z" fill="#3d2515" />
+                        <circle cx="234" cy="86" r="5" fill="#3d2515" />
+                        <!-- Neck -->
+                        <path d="M205,58 L216,52 L218,64 L207,67Z" fill="#3d2515" />
+                        <!-- Head -->
+                        <circle cx="226" cy="42" r="20" fill="#3d2515" />
+                        <!-- Curly hair -->
+                        <circle cx="215" cy="24" r="8" fill="#3d2515" />
+                        <circle cx="226" cy="22" r="7" fill="#3d2515" />
+                        <circle cx="236" cy="24" r="7" fill="#3d2515" />
+                        <circle cx="210" cy="32" r="6" fill="#3d2515" />
+                        <circle cx="240" cy="32" r="5" fill="#3d2515" />
+                        <!-- Hair blowing back -->
+                        <circle cx="204" cy="30" r="5" fill="#3d2515" />
+                        <circle cx="200" cy="36" r="4" fill="#3d2515" />
+                        <!-- Beard -->
+                        <ellipse cx="238" cy="52" rx="7" ry="9" fill="#3d2515" />
+                        <ellipse cx="242" cy="60" rx="5" ry="6" fill="#3d2515" />
+                        <!-- Scarf flowing behind -->
+                        <path d="M215,56 Q195,48 178,52 Q175,58 183,55 Q200,50 213,58Z" fill="#6b4423" opacity="0.8" />
+                        <path d="M178,52 Q165,50 158,54 Q162,58 168,55Z" fill="#6b4423" opacity="0.6" />
+                    </svg>
+                </div>
             </div>
-            <!-- Mischief Managed text -->
-            <div class="mischief-managed" id="mischief-text">Mischief Managed.</div>
-        </div>
-        <!-- Final sentence -->
-        <div class="final-message" id="final-message">We solemnly swear we are rooting for you.</div>
-    </div>
-</div>
 
-<!-- Sign-off (after map) -->
-<div class="letter-footer">
-    <svg viewBox="0 0 50 50" width="44" height="44" style="margin-bottom:14px;">
+            <div class="letter-divider">
+                <svg width="180" height="16" viewBox="0 0 180 16">
+                    <line x1="0" y1="8" x2="75" y2="8" stroke="#c9a84c" stroke-width="0.6" />
+                    <polygon points="90,1 97,8 90,15 83,8" stroke="#c9a84c" stroke-width="0.8" fill="none" />
+                    <line x1="105" y1="8" x2="180" y2="8" stroke="#c9a84c" stroke-width="0.6" />
+                </svg>
+            </div>
+
+            <!-- Diagon Alley / Medfinder Castle Reveal (scroll-driven) -->
+            <div class="diagon-scroll" id="diagon-scroll">
+                <div class="diagon-sticky">
+                    <!-- Brick Wall -->
+                    <div class="brick-wall" id="brick-wall"></div>
+
+                    <!-- Text revealed behind wall -->
+                    <div class="diagon-text" id="diagon-text">
+                        <p>One fine day, he walked through the Diagon Alley of Boston and found</p>
+                        <span class="place-name">Medfinder — School of Codecraft &amp; Debuggery</span>
+                    </div>
+
+                    <!-- Castle behind everything -->
+                    <div class="castle-scene" id="castle-scene">
+                        <div class="castle-glow"></div>
+                        <svg class="castle-svg" viewBox="0 -30 520 470" fill="none">
+                            <!-- Ground / hill -->
+                            <ellipse cx="260" cy="420" rx="240" ry="35" fill="#2a1a0e" opacity="0.6" />
+
+                            <!-- Main building body -->
+                            <rect x="155" y="210" width="210" height="180" rx="3" fill="#3d2a1a" stroke="#5a4030"
+                                stroke-width="1" />
+                            <!-- Stone texture lines -->
+                            <line x1="155" y1="250" x2="365" y2="250" stroke="#4a3525" stroke-width="0.5"
+                                opacity="0.5" />
+                            <line x1="155" y1="290" x2="365" y2="290" stroke="#4a3525" stroke-width="0.5"
+                                opacity="0.5" />
+                            <line x1="155" y1="330" x2="365" y2="330" stroke="#4a3525" stroke-width="0.5"
+                                opacity="0.5" />
+                            <line x1="155" y1="370" x2="365" y2="370" stroke="#4a3525" stroke-width="0.5"
+                                opacity="0.5" />
+
+                            <!-- Center tower (tallest) -->
+                            <rect x="225" y="80" width="70" height="130" rx="2" fill="#4a3020" stroke="#5a4030"
+                                stroke-width="1" />
+                            <polygon points="225,80 260,28 295,80" fill="#5a3828" stroke="#6a4838" stroke-width="0.8" />
+                            <!-- Tower window -->
+                            <rect x="248" y="110" width="24" height="35" rx="12" fill="#1a0e06" stroke="#6a5030"
+                                stroke-width="0.8" />
+                            <line x1="260" y1="110" x2="260" y2="145" stroke="#6a5030" stroke-width="0.5" />
+                            <line x1="248" y1="128" x2="272" y2="128" stroke="#6a5030" stroke-width="0.5" />
+                            <!-- Warm window glow -->
+                            <rect x="250" y="112" width="20" height="31" rx="10" fill="url(#windowGlow)"
+                                opacity="0.5" />
+
+                            <!-- Left tower -->
+                            <rect x="130" y="140" width="55" height="250" rx="2" fill="#3d2a1a" stroke="#5a4030"
+                                stroke-width="1" />
+                            <polygon points="130,140 157.5,85 185,140" fill="#5a3828" stroke="#6a4838"
+                                stroke-width="0.8" />
+                            <!-- Left tower window -->
+                            <rect x="146" y="175" width="18" height="28" rx="9" fill="#1a0e06" stroke="#6a5030"
+                                stroke-width="0.7" />
+                            <rect x="147" y="176" width="16" height="26" rx="8" fill="url(#windowGlow)"
+                                opacity="0.35" />
+                            <rect x="146" y="250" width="18" height="28" rx="9" fill="#1a0e06" stroke="#6a5030"
+                                stroke-width="0.7" />
+                            <rect x="147" y="251" width="16" height="26" rx="8" fill="url(#windowGlow)"
+                                opacity="0.25" />
+
+                            <!-- Right tower -->
+                            <rect x="335" y="140" width="55" height="250" rx="2" fill="#3d2a1a" stroke="#5a4030"
+                                stroke-width="1" />
+                            <polygon points="335,140 362.5,85 390,140" fill="#5a3828" stroke="#6a4838"
+                                stroke-width="0.8" />
+                            <!-- Right tower window -->
+                            <rect x="351" y="175" width="18" height="28" rx="9" fill="#1a0e06" stroke="#6a5030"
+                                stroke-width="0.7" />
+                            <rect x="352" y="176" width="16" height="26" rx="8" fill="url(#windowGlow)"
+                                opacity="0.35" />
+                            <rect x="351" y="250" width="18" height="28" rx="9" fill="#1a0e06" stroke="#6a5030"
+                                stroke-width="0.7" />
+                            <rect x="352" y="251" width="16" height="26" rx="8" fill="url(#windowGlow)"
+                                opacity="0.25" />
+
+                            <!-- Far-left turret -->
+                            <rect x="80" y="180" width="35" height="210" rx="2" fill="#352218" stroke="#4a3525"
+                                stroke-width="0.8" />
+                            <polygon points="80,180 97.5,138 115,180" fill="#4a3020" stroke="#5a3828"
+                                stroke-width="0.7" />
+                            <rect x="90" y="210" width="12" height="20" rx="6" fill="#1a0e06" stroke="#6a5030"
+                                stroke-width="0.5" />
+                            <rect x="91" y="211" width="10" height="18" rx="5" fill="url(#windowGlow)" opacity="0.2" />
+
+                            <!-- Far-right turret -->
+                            <rect x="405" y="180" width="35" height="210" rx="2" fill="#352218" stroke="#4a3525"
+                                stroke-width="0.8" />
+                            <polygon points="405,180 422.5,138 440,180" fill="#4a3020" stroke="#5a3828"
+                                stroke-width="0.7" />
+                            <rect x="415" y="210" width="12" height="20" rx="6" fill="#1a0e06" stroke="#6a5030"
+                                stroke-width="0.5" />
+                            <rect x="416" y="211" width="10" height="18" rx="5" fill="url(#windowGlow)" opacity="0.2" />
+
+                            <!-- Main body windows row -->
+                            <rect x="180" y="240" width="18" height="28" rx="9" fill="#1a0e06" stroke="#6a5030"
+                                stroke-width="0.7" />
+                            <rect x="181" y="241" width="16" height="26" rx="8" fill="url(#windowGlow)" opacity="0.3" />
+                            <rect x="220" y="240" width="18" height="28" rx="9" fill="#1a0e06" stroke="#6a5030"
+                                stroke-width="0.7" />
+                            <rect x="221" y="241" width="16" height="26" rx="8" fill="url(#windowGlow)" opacity="0.4" />
+                            <rect x="282" y="240" width="18" height="28" rx="9" fill="#1a0e06" stroke="#6a5030"
+                                stroke-width="0.7" />
+                            <rect x="283" y="241" width="16" height="26" rx="8" fill="url(#windowGlow)"
+                                opacity="0.35" />
+                            <rect x="322" y="240" width="18" height="28" rx="9" fill="#1a0e06" stroke="#6a5030"
+                                stroke-width="0.7" />
+                            <rect x="323" y="241" width="16" height="26" rx="8" fill="url(#windowGlow)"
+                                opacity="0.25" />
+
+                            <!-- Grand entrance -->
+                            <rect x="235" y="330" width="50" height="60" rx="25" fill="#1a0e06" stroke="#6a5030"
+                                stroke-width="1" />
+                            <rect x="236" y="331" width="48" height="58" rx="24" fill="url(#windowGlow)"
+                                opacity="0.15" />
+
+                            <!-- Battlements on main building -->
+                            <rect x="155" y="204" width="15" height="12" fill="#3d2a1a" stroke="#5a4030"
+                                stroke-width="0.5" />
+                            <rect x="180" y="204" width="15" height="12" fill="#3d2a1a" stroke="#5a4030"
+                                stroke-width="0.5" />
+                            <rect x="205" y="204" width="15" height="12" fill="#3d2a1a" stroke="#5a4030"
+                                stroke-width="0.5" />
+                            <rect x="300" y="204" width="15" height="12" fill="#3d2a1a" stroke="#5a4030"
+                                stroke-width="0.5" />
+                            <rect x="325" y="204" width="15" height="12" fill="#3d2a1a" stroke="#5a4030"
+                                stroke-width="0.5" />
+                            <rect x="350" y="204" width="15" height="12" fill="#3d2a1a" stroke="#5a4030"
+                                stroke-width="0.5" />
+
+                            <!-- Flag pole on center tower -->
+                            <line x1="260" y1="28" x2="260" y2="-10" stroke="#8a7050" stroke-width="1.5" />
+                            <circle cx="260" cy="-12" r="2.5" fill="#c9a84c" />
+                            <!-- Flag with M -->
+                            <g class="flag-wave">
+                                <path d="M260,-8 L260,14 L298,3Z" fill="#8b1a1a" stroke="#a02525" stroke-width="0.5" />
+                                <text x="276" y="7" text-anchor="middle" font-family="MaraudersMap,serif" font-size="13"
+                                    fill="#c9a84c" font-weight="bold">M</text>
+                            </g>
+
+                            <!-- Stars above castle -->
+                            <circle cx="60" cy="30" r="1.2" fill="#c9a84c" opacity="0.6" />
+                            <circle cx="140" cy="50" r="0.8" fill="#c9a84c" opacity="0.4" />
+                            <circle cx="200" cy="15" r="1" fill="#c9a84c" opacity="0.5" />
+                            <circle cx="320" cy="20" r="1.1" fill="#c9a84c" opacity="0.55" />
+                            <circle cx="380" cy="45" r="0.9" fill="#c9a84c" opacity="0.4" />
+                            <circle cx="450" cy="25" r="1.2" fill="#c9a84c" opacity="0.6" />
+                            <circle cx="100" cy="65" r="0.7" fill="#c9a84c" opacity="0.35" />
+                            <circle cx="420" cy="65" r="0.7" fill="#c9a84c" opacity="0.35" />
+                            <circle cx="260" cy="55" r="0.6" fill="#c9a84c" opacity="0.3" />
+
+                            <defs>
+                                <radialGradient id="windowGlow" cx="50%" cy="40%">
+                                    <stop offset="0%" stop-color="#f5c84c" />
+                                    <stop offset="60%" stop-color="#c9884c" />
+                                    <stop offset="100%" stop-color="#3a2010" />
+                                </radialGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="letter-divider">
+                <svg width="180" height="16" viewBox="0 0 180 16">
+                    <line x1="0" y1="8" x2="75" y2="8" stroke="#c9a84c" stroke-width="0.6" />
+                    <polygon points="90,1 97,8 90,15 83,8" stroke="#c9a84c" stroke-width="0.8" fill="none" />
+                    <line x1="105" y1="8" x2="180" y2="8" stroke="#c9a84c" stroke-width="0.6" />
+                </svg>
+            </div>
+
+            <!-- The Spells He Cast (scroll-driven, one spell at a time) -->
+            <div class="spells-section" id="spells-section">
+                <div class="spells-sticky" id="spells-sticky">
+                    <h2 class="spells-title">The Spells He Cast</h2>
+                    <div class="spell-entry" data-spell="Buildulus Rapidus" data-side="left" data-wand="0">
+                        <div class="spell-name">Buildulus Rapidus</div>
+                        <p class="spell-desc">One wave from his magic wand and the API endpoints magically appear!</p>
+                    </div>
+                    <div class="spell-entry" data-spell="Mentorus Maxima" data-side="right" data-wand="1">
+                        <div class="spell-name">Mentorus Maxima</div>
+                        <p class="spell-desc">The mysteries of Cloudformation and DynamoDB refused to reveal themselves
+                            without a drop of Ali's magic potion.</p>
+                    </div>
+                    <div class="spell-entry" data-spell="Debuggio Totalum" data-side="left" data-wand="2">
+                        <div class="spell-name">Debuggio Totalum</div>
+                        <p class="spell-desc">
+                            Bugs scattered like dust in the wind after Ali's debugging spell. Medfinder was always safe
+                            under his (cloud)watchfull eye.
+                        </p>
+                    </div>
+                    <div class="spell-entry" data-spell="Architectura Elegans" data-side="right" data-wand="3">
+                        <div class="spell-name">Architectura Elegans</div>
+                        <p class="spell-desc">Designed systems that were clean enough to understand on Monday morning
+                            and robust enough to survive Friday deploys.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="letter-divider">
+                <svg width="180" height="16" viewBox="0 0 180 16">
+                    <line x1="0" y1="8" x2="75" y2="8" stroke="#c9a84c" stroke-width="0.6" />
+                    <polygon points="90,1 97,8 90,15 83,8" stroke="#c9a84c" stroke-width="0.8" fill="none" />
+                    <line x1="105" y1="8" x2="180" y2="8" stroke="#c9a84c" stroke-width="0.6" />
+                </svg>
+            </div>
+
+            <!-- The Next Chapter -->
+            <div class="next-chapter-section" id="next-chapter-section">
+                <h2>The Next Chapter</h2>
+                <div class="farewell-block" data-reveal>
+                    <p>Alas! All good things come to and end.</p>
+                    <p>But as one magical spell ends, another begins!</p>
+                </div>
+            </div>
+
+            <!-- MAGIC → MAGI.ai reveal (scroll-pinned) -->
+            <div class="magic-scroll" id="magic-scroll">
+                <div class="magic-sticky">
+                    <div class="magic-section" id="magic-section">
+                        <div class="fireworks-canvas" id="fireworks-canvas"></div>
+                        <p class="magic-lead">Time to make your own</p>
+                        <div class="magic-word" aria-label="MAGI.ai">
+                            <span class="magic-letter">M</span><span class="magic-letter">A</span><span
+                                class="magic-letter">G</span><span class="magic-letter">I</span><span
+                                class="magic-c-wrap"><span class="magic-c" id="magic-c">C</span><span class="magic-ai"
+                                    id="magic-ai">.ai</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- SVG clip-paths for rough parchment edges -->
+    <svg width="0" height="0" style="position:absolute">
         <defs>
-            <radialGradient id="footerSeal" cx="38%" cy="32%">
-                <stop offset="0%" stop-color="#c03030"/>
-                <stop offset="40%" stop-color="#a02020"/>
-                <stop offset="100%" stop-color="#5a0e0e"/>
-            </radialGradient>
-            <filter id="footerSealShadow" x="-20%" y="-20%" width="140%" height="140%">
-                <feDropShadow dx="0.5" dy="1" stdDeviation="1.2" flood-color="#2a0505" flood-opacity="0.45"/>
-            </filter>
+            <clipPath id="roughMap" clipPathUnits="objectBoundingBox">
+                <path
+                    d="M 0.012,0.006 C 0.035,0.002 0.065,0.014 0.10,0.005 C 0.14,0.001 0.175,0.013 0.21,0.008 C 0.25,0.002 0.29,0.016 0.33,0.004 C 0.37,0.001 0.41,0.012 0.45,0.007 C 0.49,0.002 0.53,0.015 0.57,0.005 C 0.61,0.001 0.65,0.014 0.69,0.006 C 0.73,0.001 0.77,0.013 0.81,0.004 C 0.85,0.001 0.89,0.011 0.93,0.007 C 0.96,0.003 0.98,0.012 0.993,0.008 C 0.997,0.035 0.986,0.07 0.994,0.11 C 0.998,0.15 0.987,0.19 0.993,0.23 C 0.999,0.28 0.985,0.32 0.994,0.37 C 0.998,0.41 0.986,0.46 0.993,0.50 C 0.998,0.55 0.987,0.59 0.995,0.64 C 0.999,0.68 0.985,0.73 0.993,0.77 C 0.997,0.82 0.987,0.86 0.994,0.91 C 0.998,0.95 0.988,0.975 0.992,0.993 C 0.965,0.997 0.93,0.986 0.89,0.994 C 0.85,0.998 0.81,0.986 0.77,0.995 C 0.73,0.999 0.69,0.987 0.65,0.993 C 0.61,0.998 0.57,0.985 0.53,0.994 C 0.49,0.998 0.45,0.988 0.41,0.993 C 0.37,0.999 0.33,0.986 0.29,0.995 C 0.25,0.999 0.21,0.987 0.175,0.994 C 0.14,0.998 0.10,0.988 0.065,0.993 C 0.035,0.997 0.015,0.988 0.007,0.993 C 0.002,0.96 0.014,0.92 0.006,0.87 C 0.001,0.83 0.013,0.78 0.005,0.73 C 0.001,0.69 0.012,0.64 0.007,0.59 C 0.002,0.55 0.015,0.50 0.005,0.46 C 0.001,0.41 0.014,0.37 0.006,0.32 C 0.001,0.27 0.013,0.23 0.005,0.18 C 0.001,0.14 0.012,0.10 0.008,0.06 C 0.003,0.035 0.015,0.02 0.012,0.006 Z" />
+            </clipPath>
+            <clipPath id="roughFoldTop" clipPathUnits="objectBoundingBox">
+                <path
+                    d="M 0.010,0.010 C 0.04,0.003 0.08,0.018 0.12,0.007 C 0.17,0.002 0.22,0.016 0.27,0.009 C 0.32,0.002 0.37,0.014 0.42,0.006 C 0.47,0.001 0.52,0.017 0.57,0.008 C 0.62,0.002 0.67,0.015 0.72,0.005 C 0.77,0.001 0.82,0.013 0.87,0.007 C 0.92,0.002 0.96,0.014 0.991,0.010 C 0.997,0.06 0.984,0.12 0.994,0.18 C 0.999,0.25 0.986,0.32 0.993,0.39 C 0.998,0.46 0.985,0.53 0.994,0.60 C 0.998,0.67 0.986,0.74 0.993,0.81 C 0.997,0.87 0.990,0.93 0.994,0.99 L 0.006,0.99 C 0.010,0.93 0.003,0.87 0.007,0.81 C 0.014,0.74 0.002,0.67 0.006,0.60 C 0.015,0.53 0.001,0.46 0.007,0.39 C 0.014,0.32 0.001,0.25 0.006,0.18 C 0.016,0.12 0.003,0.06 0.010,0.010 Z" />
+            </clipPath>
+            <clipPath id="roughFoldBottom" clipPathUnits="objectBoundingBox">
+                <path
+                    d="M 0.006,0.01 L 0.994,0.01 C 0.990,0.07 0.997,0.13 0.993,0.19 C 0.986,0.26 0.998,0.33 0.994,0.40 C 0.985,0.47 0.999,0.54 0.993,0.61 C 0.986,0.68 0.998,0.75 0.994,0.82 C 0.997,0.88 0.988,0.94 0.991,0.990 C 0.96,0.997 0.92,0.984 0.87,0.993 C 0.82,0.998 0.77,0.986 0.72,0.995 C 0.67,0.999 0.62,0.985 0.57,0.992 C 0.52,0.998 0.47,0.984 0.42,0.994 C 0.37,0.999 0.32,0.986 0.27,0.991 C 0.22,0.998 0.17,0.984 0.12,0.993 C 0.08,0.998 0.04,0.986 0.010,0.990 C 0.003,0.94 0.014,0.88 0.006,0.82 C 0.002,0.75 0.014,0.68 0.007,0.61 C 0.001,0.54 0.015,0.47 0.006,0.40 C 0.002,0.33 0.014,0.26 0.007,0.19 C 0.003,0.13 0.010,0.07 0.006,0.01 Z" />
+            </clipPath>
+            <clipPath id="roughFoldLeft" clipPathUnits="objectBoundingBox">
+                <path
+                    d="M 0.015,0.008 C 0.025,0.025 0.010,0.05 0.018,0.08 C 0.008,0.11 0.020,0.14 0.012,0.18 C 0.005,0.22 0.018,0.26 0.010,0.30 C 0.004,0.34 0.016,0.38 0.008,0.42 C 0.003,0.46 0.015,0.50 0.010,0.54 C 0.004,0.58 0.018,0.62 0.012,0.66 C 0.005,0.70 0.016,0.74 0.008,0.78 C 0.003,0.82 0.015,0.86 0.010,0.90 C 0.006,0.94 0.018,0.97 0.015,0.992 L 0.99,0.99 L 0.99,0.01 L 0.015,0.008 Z" />
+            </clipPath>
+            <clipPath id="roughFoldRight" clipPathUnits="objectBoundingBox">
+                <path
+                    d="M 0.01,0.01 L 0.01,0.99 L 0.985,0.992 C 0.982,0.97 0.994,0.94 0.990,0.90 C 0.985,0.86 0.997,0.82 0.992,0.78 C 0.984,0.74 0.995,0.70 0.988,0.66 C 0.982,0.62 0.996,0.58 0.990,0.54 C 0.985,0.50 0.997,0.46 0.992,0.42 C 0.984,0.38 0.996,0.34 0.990,0.30 C 0.982,0.26 0.995,0.22 0.988,0.18 C 0.980,0.14 0.992,0.11 0.985,0.08 C 0.990,0.05 0.975,0.025 0.985,0.008 L 0.01,0.01 Z" />
+            </clipPath>
         </defs>
-        <path d="M25,3 C29,1.8 34,3.5 38,7 C41.5,10 44.5,13.5 46,18 C47.5,22.5 47.5,26 46.5,30.5 C45.5,35 43,38.5 39.5,41.5 C36,44.5 32,47 27.5,47.5 C23,48 19,47 15,44.5 C11,42 7.5,38.5 5.5,34 C3.5,29.5 2.5,25 3,20 C3.5,15 6,10.5 9.5,7 C13,3.5 17,2 21,2.5 C23,2.7 24,3.2 25,3Z" fill="#8b1a1a" filter="url(#footerSealShadow)"/>
-        <path d="M25,3 C29,1.8 34,3.5 38,7 C41.5,10 44.5,13.5 46,18 C47.5,22.5 47.5,26 46.5,30.5 C45.5,35 43,38.5 39.5,41.5 C36,44.5 32,47 27.5,47.5 C23,48 19,47 15,44.5 C11,42 7.5,38.5 5.5,34 C3.5,29.5 2.5,25 3,20 C3.5,15 6,10.5 9.5,7 C13,3.5 17,2 21,2.5 C23,2.7 24,3.2 25,3Z" fill="url(#footerSeal)"/>
-        <path d="M25,7.5 C28.5,6.5 33,8 36,11 C38.5,13.5 40.5,16.5 41,20.5 C41.5,24.5 41,28 39,31.5 C37,35 34,38 30.5,39.5 C27,41 23.5,41 20,39.5 C16.5,38 13.5,35 11.5,31.5 C9.5,28 8.5,24 9,20 C9.5,16 11.5,12.5 14.5,10 C17.5,7.5 21,7 25,7.5Z" fill="none" stroke="#c9a84c" stroke-width="0.5" opacity="0.4"/>
-        <text x="25" y="30" text-anchor="middle" font-family="MaraudersMap,serif" font-size="15" fill="#c9a84c" opacity="0.7">M</text>
     </svg>
-    <p class="signoff">Yours fondly, Parth and Team Medfinder</p>
-    <p class="footer-domain">alimoeeny.com</p>
-</div>
 
-<script>
-(function () {
-    'use strict';
+    <!-- Marauder's Map Closing Sequence (outside parchment) -->
+    <div class="map-sequence" id="map-sequence">
+        <div class="map-sticky" id="map-sticky">
+            <div class="marauders-map" id="marauders-map">
+                <div class="map-outer" id="map-outer">
+                    <div class="map-face map-front" id="map-front">
+                        <img src="marauders-map.png" alt="The Marauder's Map" class="map-image" />
+                    </div>
+                    <!-- Fold flaps for closing -->
+                    <div class="map-fold-top" id="map-fold-top">
+                        <svg width="100%" height="100%"
+                            style="position:absolute;inset:0;pointer-events:none;opacity:0.35">
+                            <line x1="0" y1="100%" x2="100%" y2="100%" stroke="#a08050" stroke-width="1.5"
+                                stroke-dasharray="8,4,2,4" />
+                            <ellipse cx="30%" cy="40%" rx="18" ry="12" fill="rgba(140,110,65,0.08)" />
+                            <ellipse cx="75%" cy="70%" rx="14" ry="10" fill="rgba(130,100,60,0.06)" />
+                            <ellipse cx="55%" cy="25%" rx="10" ry="8" fill="rgba(150,120,70,0.07)" />
+                        </svg>
+                    </div>
+                    <div class="map-fold-bottom" id="map-fold-bottom">
+                        <svg width="100%" height="100%"
+                            style="position:absolute;inset:0;pointer-events:none;opacity:0.35">
+                            <line x1="0" y1="0" x2="100%" y2="0" stroke="#a08050" stroke-width="1.5"
+                                stroke-dasharray="6,5,3,4" />
+                            <ellipse cx="45%" cy="55%" rx="16" ry="11" fill="rgba(140,110,65,0.08)" />
+                            <ellipse cx="20%" cy="30%" rx="12" ry="9" fill="rgba(130,100,60,0.06)" />
+                            <ellipse cx="80%" cy="75%" rx="15" ry="10" fill="rgba(150,120,70,0.07)" />
+                        </svg>
+                    </div>
+                    <!-- Horizontal crease -->
+                    <div class="map-crease" id="map-crease"></div>
+                    <!-- Side fold flaps (fold inward after horizontal fold) -->
+                    <div class="map-fold-left" id="map-fold-left">
+                        <svg width="100%" height="100%"
+                            style="position:absolute;inset:0;pointer-events:none;opacity:0.30">
+                            <line x1="100%" y1="0" x2="100%" y2="100%" stroke="#a08050" stroke-width="1"
+                                stroke-dasharray="5,6,3,5" />
+                            <ellipse cx="40%" cy="35%" rx="14" ry="10" fill="rgba(140,110,65,0.07)" />
+                            <ellipse cx="60%" cy="70%" rx="12" ry="8" fill="rgba(130,100,60,0.06)" />
+                        </svg>
+                    </div>
+                    <div class="map-fold-right" id="map-fold-right">
+                        <svg width="100%" height="100%"
+                            style="position:absolute;inset:0;pointer-events:none;opacity:0.30">
+                            <line x1="0" y1="0" x2="0" y2="100%" stroke="#a08050" stroke-width="1"
+                                stroke-dasharray="4,7,2,5" />
+                            <ellipse cx="55%" cy="45%" rx="13" ry="9" fill="rgba(140,110,65,0.07)" />
+                            <ellipse cx="35%" cy="75%" rx="11" ry="8" fill="rgba(130,100,60,0.05)" />
+                        </svg>
+                    </div>
+                </div>
+                <!-- Mischief Managed text -->
+                <div class="mischief-managed" id="mischief-text">Mischief Managed.</div>
+            </div>
+            <!-- Final sentence -->
+            <div class="final-message" id="final-message">We solemnly swear we are rooting for you.</div>
+        </div>
+    </div>
 
-    var stage     = document.getElementById('stage');
-    var owl       = document.getElementById('owl');
-    var envWrap   = document.getElementById('envelope-wrap');
-    var envFlap   = document.getElementById('env-flap');
-    var envSeal   = document.getElementById('env-seal');
-    var overlay   = document.getElementById('parchment-overlay');
-    var hint      = document.getElementById('scroll-hint');
-    var candleLay = document.getElementById('candle-layer');
-    var spacer    = document.querySelector('.intro-spacer');
-    var wingL     = document.querySelector('.wing-l');
-    var wingR     = document.querySelector('.wing-r');
-    var owlLetter = document.querySelector('.owl-letter');
-    var envChrome = document.querySelectorAll('.env-chrome');
+    <!-- Sign-off (after map) -->
+    <div class="letter-footer">
+        <svg viewBox="0 0 50 50" width="44" height="44" style="margin-bottom:14px;">
+            <defs>
+                <radialGradient id="footerSeal" cx="38%" cy="32%">
+                    <stop offset="0%" stop-color="#c03030" />
+                    <stop offset="40%" stop-color="#a02020" />
+                    <stop offset="100%" stop-color="#5a0e0e" />
+                </radialGradient>
+                <filter id="footerSealShadow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feDropShadow dx="0.5" dy="1" stdDeviation="1.2" flood-color="#2a0505" flood-opacity="0.45" />
+                </filter>
+            </defs>
+            <path
+                d="M25,3 C29,1.8 34,3.5 38,7 C41.5,10 44.5,13.5 46,18 C47.5,22.5 47.5,26 46.5,30.5 C45.5,35 43,38.5 39.5,41.5 C36,44.5 32,47 27.5,47.5 C23,48 19,47 15,44.5 C11,42 7.5,38.5 5.5,34 C3.5,29.5 2.5,25 3,20 C3.5,15 6,10.5 9.5,7 C13,3.5 17,2 21,2.5 C23,2.7 24,3.2 25,3Z"
+                fill="#8b1a1a" filter="url(#footerSealShadow)" />
+            <path
+                d="M25,3 C29,1.8 34,3.5 38,7 C41.5,10 44.5,13.5 46,18 C47.5,22.5 47.5,26 46.5,30.5 C45.5,35 43,38.5 39.5,41.5 C36,44.5 32,47 27.5,47.5 C23,48 19,47 15,44.5 C11,42 7.5,38.5 5.5,34 C3.5,29.5 2.5,25 3,20 C3.5,15 6,10.5 9.5,7 C13,3.5 17,2 21,2.5 C23,2.7 24,3.2 25,3Z"
+                fill="url(#footerSeal)" />
+            <path
+                d="M25,7.5 C28.5,6.5 33,8 36,11 C38.5,13.5 40.5,16.5 41,20.5 C41.5,24.5 41,28 39,31.5 C37,35 34,38 30.5,39.5 C27,41 23.5,41 20,39.5 C16.5,38 13.5,35 11.5,31.5 C9.5,28 8.5,24 9,20 C9.5,16 11.5,12.5 14.5,10 C17.5,7.5 21,7 25,7.5Z"
+                fill="none" stroke="#c9a84c" stroke-width="0.5" opacity="0.4" />
+            <text x="25" y="30" text-anchor="middle" font-family="MaraudersMap,serif" font-size="15" fill="#c9a84c"
+                opacity="0.7">M</text>
+        </svg>
+        <p class="signoff">Yours fondly, Parth and Team Medfinder</p>
+        <p class="footer-domain">alimoeeny.com</p>
+    </div>
 
-    /* ── Helpers ── */
-    function lerp(a, b, t) { return a + (b - a) * t; }
-    function clamp01(v) { return Math.max(0, Math.min(1, v)); }
-    function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
-    function easeIn(t) { return t * t * t; }
-    function easeInOut(t) { return t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2; }
-    function phase(p, s, e) { return clamp01((p - s) / (e - s)); }
+    <script>
+        (function () {
+            'use strict';
 
-    /* ── Stage Candles (Great Hall, visible at p=0) ── */
-    var stageCandles = [];
-    function stageCandleSvg(h) {
-        return '<svg viewBox="0 0 16 ' + (h + 20) + '" width="14" height="' + Math.round((h + 20) * 14 / 16) + '">' +
-            '<ellipse class="candle-flame" cx="8" cy="8" rx="3.5" ry="6.5" fill="#f0a020" opacity="0.85"/>' +
-            '<ellipse cx="8" cy="9" rx="2.2" ry="4" fill="#f8cc40" opacity="0.9"/>' +
-            '<ellipse cx="8" cy="10" rx="1" ry="2" fill="#fff8e0"/>' +
-            '<line x1="8" y1="14" x2="8" y2="18" stroke="#777" stroke-width="1"/>' +
-            '<rect x="5" y="18" width="6" height="' + h + '" rx="1.5" fill="#e8d8c0"/>' +
-            '<rect x="5" y="18" width="6" height="3" rx="1.5" fill="#dcd0b4"/>' +
-            '</svg>';
-    }
-    function createStageCandles() {
-        var n = window.innerWidth < 600 ? 10 : 16;
-        var frag = document.createDocumentFragment();
-        for (var i = 0; i < n; i++) {
-            var c = document.createElement('div');
-            c.className = 'stage-candle';
-            var candleH = Math.random() * 30 + 25;
-            var left = (Math.random() * 88 + 6);
-            var top = (Math.random() * 35 + 5);
-            c.style.cssText =
-                'left:' + left + '%;' +
-                'top:' + top + '%;' +
-                'opacity:' + (Math.random() * 0.3 + 0.45) + ';' +
-                '--bob-dur:' + (Math.random() * 2 + 2.5) + 's;' +
-                '--bob-delay:-' + (Math.random() * 3) + 's;' +
-                '--bob-y:' + (-(Math.random() * 14 + 6)) + 'px;' +
-                '--bob-x:' + ((Math.random() - 0.5) * 10) + 'px;';
-            var baseOp = Math.random() * 0.3 + 0.45;
-            c.dataset.baseOp = baseOp;
-            c.innerHTML = stageCandleSvg(candleH);
-            frag.appendChild(c);
-            stageCandles.push(c);
-        }
-        stage.appendChild(frag);
-    }
+            var stage = document.getElementById('stage');
+            var owl = document.getElementById('owl');
+            var envWrap = document.getElementById('envelope-wrap');
+            var envFlap = document.getElementById('env-flap');
+            var envSeal = document.getElementById('env-seal');
+            var overlay = document.getElementById('parchment-overlay');
+            var hint = document.getElementById('scroll-hint');
+            var candleLay = document.getElementById('candle-layer');
+            var spacer = document.querySelector('.intro-spacer');
+            var wingL = document.querySelector('.wing-l');
+            var wingR = document.querySelector('.wing-r');
+            var owlLetter = document.querySelector('.owl-letter');
+            var envChrome = document.querySelectorAll('.env-chrome');
 
-    /* ── Stars ── */
-    function createStars() {
-        var count = window.innerWidth < 600 ? 80 : 150;
-        var frag = document.createDocumentFragment();
-        for (var i = 0; i < count; i++) {
-            var s = document.createElement('div');
-            s.className = 'star';
-            var sz = (Math.random() * 2.2 + 0.6) + 'px';
-            s.style.cssText =
-                'left:' + (Math.random() * 100) + '%;' +
-                'top:' + (Math.random() * 100) + '%;' +
-                'width:' + sz + ';height:' + sz + ';' +
-                '--dur:' + (Math.random() * 3 + 2) + 's;' +
-                '--delay:' + (Math.random() * 5) + 's;';
-            frag.appendChild(s);
-        }
-        stage.appendChild(frag);
-    }
+            /* ── Helpers ── */
+            function lerp(a, b, t) { return a + (b - a) * t; }
+            function clamp01(v) { return Math.max(0, Math.min(1, v)); }
+            function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+            function easeIn(t) { return t * t * t; }
+            function easeInOut(t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+            function phase(p, s, e) { return clamp01((p - s) / (e - s)); }
 
-    /* ── Candles (letter background) ── */
-    function candleSvg() {
-        return '<svg viewBox="0 0 24 70" width="20" height="58">' +
-            '<ellipse class="candle-flame" cx="12" cy="12" rx="4" ry="7" fill="#e0a020" opacity="0.7"/>' +
-            '<ellipse cx="12" cy="13" rx="2.5" ry="4.5" fill="#f0c840" opacity="0.8"/>' +
-            '<ellipse cx="12" cy="14" rx="1.2" ry="2.5" fill="#fff4d0"/>' +
-            '<line x1="12" y1="18" x2="12" y2="22" stroke="#888" stroke-width="1.2"/>' +
-            '<rect x="7" y="22" width="10" height="44" rx="2" fill="#e8d8c0" opacity="0.6"/>' +
-            '</svg>';
-    }
-    function createCandles() {
-        var n = window.innerWidth < 600 ? 5 : 9;
-        var frag = document.createDocumentFragment();
-        for (var i = 0; i < n; i++) {
-            var c = document.createElement('div');
-            c.className = 'floating-candle';
-            c.style.cssText =
-                'left:' + (Math.random() * 92 + 4) + '%;' +
-                'opacity:' + (Math.random() * 0.08 + 0.06) + ';' +
-                '--dur:' + (Math.random() * 12 + 16) + 's;' +
-                '--delay:-' + (Math.random() * 20) + 's;' +
-                '--drift:' + ((Math.random() - 0.5) * 40) + 'px;';
-            c.innerHTML = candleSvg();
-            frag.appendChild(c);
-        }
-        candleLay.appendChild(frag);
-    }
-
-    /* ── Particles ── */
-    var sparklesSpawned = false;
-    function spawnSparkles(cx, cy) {
-        if (sparklesSpawned) return;
-        sparklesSpawned = true;
-        for (var i = 0; i < 24; i++) {
-            var sp = document.createElement('div');
-            sp.className = 'sparkle';
-            sp.style.left = cx + 'px';
-            sp.style.top = cy + 'px';
-            var angle = (Math.PI * 2 * i) / 24 + (Math.random() - 0.5) * 0.5;
-            var dist = Math.random() * 80 + 40;
-            var dx = Math.cos(angle) * dist;
-            var dy = Math.sin(angle) * dist;
-            var size = (Math.random() * 4 + 2) + 'px';
-            sp.style.width = size;
-            sp.style.height = size;
-            stage.appendChild(sp);
-            (function(el, ddx, ddy) {
-                requestAnimationFrame(function() {
-                    el.style.transition = 'all ' + (0.6 + Math.random() * 0.4) + 's cubic-bezier(0.2,0,0.3,1)';
-                    el.style.transform = 'translate(' + ddx + 'px,' + ddy + 'px) scale(0)';
-                    el.style.opacity = '0';
-                });
-            })(sp, dx, dy);
-            setTimeout((function(el) { return function() { el.remove(); }; })(sp), 1200);
-        }
-    }
-
-    /* ── Scroll-driven Spells with unique wands ── */
-    var wandDesigns = [
-        function() {
-            return '<svg viewBox="0 0 180 16" width="280" height="25">' +
-                '<line x1="30" y1="8" x2="175" y2="8" stroke="#3d1e0a" stroke-width="3.5" stroke-linecap="round"/>' +
-                '<line x1="5" y1="8" x2="35" y2="8" stroke="#5a3820" stroke-width="5" stroke-linecap="round"/>' +
-                '<ellipse cx="8" cy="8" rx="6" ry="6" fill="#6a4820" stroke="#4a2a10" stroke-width="0.8"/>' +
-                '<rect x="18" y="5" width="10" height="6" rx="2" fill="#4a2a10"/>' +
-                '<circle cx="177" cy="8" r="3" fill="#c9a84c"/></svg>';
-        },
-        function() {
-            return '<svg viewBox="0 0 170 16" width="270" height="25">' +
-                '<line x1="20" y1="8" x2="165" y2="8" stroke="#2a1508" stroke-width="2.8" stroke-linecap="round"/>' +
-                '<path d="M5,8 Q10,3 20,8 Q10,13 5,8Z" fill="#7a5828" stroke="#5a3820" stroke-width="0.6"/>' +
-                '<line x1="22" y1="5" x2="22" y2="11" stroke="#5a3820" stroke-width="1.2"/>' +
-                '<line x1="26" y1="5" x2="26" y2="11" stroke="#5a3820" stroke-width="0.8"/>' +
-                '<circle cx="167" cy="8" r="2.5" fill="#e8c840"/></svg>';
-        },
-        function() {
-            return '<svg viewBox="0 0 190 18" width="300" height="28">' +
-                '<path d="M35,9 Q80,7 130,9 Q160,10 185,9" stroke="#4a2a15" stroke-width="3" fill="none" stroke-linecap="round"/>' +
-                '<ellipse cx="12" cy="9" rx="10" ry="7" fill="#5a3820" stroke="#3d1e0a" stroke-width="0.8"/>' +
-                '<ellipse cx="12" cy="9" rx="6" ry="4" fill="#7a5828"/>' +
-                '<line x1="24" y1="6" x2="24" y2="12" stroke="#3d1e0a" stroke-width="1.5"/>' +
-                '<circle cx="187" cy="9" r="2.8" fill="#c9a84c"/></svg>';
-        },
-        function() {
-            return '<svg viewBox="0 0 175 16" width="260" height="24">' +
-                '<line x1="28" y1="8" x2="170" y2="8" stroke="#1a0a02" stroke-width="2.5" stroke-linecap="round"/>' +
-                '<line x1="28" y1="8" x2="60" y2="8" stroke="#3d1e0a" stroke-width="4" stroke-linecap="round"/>' +
-                '<rect x="5" y="3" width="22" height="10" rx="3" fill="#6a4820" stroke="#4a2a10" stroke-width="0.6"/>' +
-                '<line x1="14" y1="4" x2="14" y2="12" stroke="#8a6840" stroke-width="0.6"/>' +
-                '<line x1="18" y1="4" x2="18" y2="12" stroke="#8a6840" stroke-width="0.6"/>' +
-                '<circle cx="172" cy="8" r="2.5" fill="#ffd700"/></svg>';
-        },
-        function() {
-            return '<svg viewBox="0 0 185 18" width="290" height="28">' +
-                '<path d="M30,9 C60,7 100,11 140,8 C160,7 180,9 182,9" stroke="#5a3020" stroke-width="3.2" fill="none" stroke-linecap="round"/>' +
-                '<circle cx="10" cy="9" r="8" fill="#4a2a15" stroke="#3d1e0a" stroke-width="0.8"/>' +
-                '<circle cx="10" cy="9" r="4.5" fill="none" stroke="#8a6840" stroke-width="0.6"/>' +
-                '<circle cx="10" cy="9" r="2" fill="#8a6840"/>' +
-                '<line x1="20" y1="6.5" x2="20" y2="11.5" stroke="#3d1e0a" stroke-width="1.2"/>' +
-                '<circle cx="184" cy="9" r="3" fill="#c9a84c"/></svg>';
-        }
-    ];
-
-    function setupSpellsScroll() {
-        var section = document.getElementById('spells-section');
-        var sticky = document.getElementById('spells-sticky');
-        if (!section || !sticky) return;
-
-        var entries = section.querySelectorAll('.spell-entry');
-        var count = entries.length;
-        var perSpell = 1 / count;
-
-        section.style.height = (count * 120 + 60) + 'vh';
-
-        var wands = [];
-        for (var i = 0; i < count; i++) {
-            var entry = entries[i];
-            var side = entry.getAttribute('data-side');
-            var wandIdx = parseInt(entry.getAttribute('data-wand'), 10);
-
-            var wandEl = document.createElement('div');
-            wandEl.className = 'spell-wand ' + (side === 'right' ? 'from-right' : 'from-left');
-            wandEl.innerHTML = wandDesigns[wandIdx]();
-
-            var glow = document.createElement('div');
-            glow.className = 'wand-glow';
-            wandEl.appendChild(glow);
-
-            var beam = document.createElement('div');
-            beam.className = 'spell-beam';
-            beam.style.width = 'calc(50vw - 40px)';
-            if (side === 'left') {
-                beam.style.left = '100%';
-            } else {
-                beam.style.right = '100%';
+            /* ── Stage Candles (Great Hall, visible at p=0) ── */
+            var stageCandles = [];
+            function stageCandleSvg(h) {
+                return '<svg viewBox="0 0 16 ' + (h + 20) + '" width="14" height="' + Math.round((h + 20) * 14 / 16) + '">' +
+                    '<ellipse class="candle-flame" cx="8" cy="8" rx="3.5" ry="6.5" fill="#f0a020" opacity="0.85"/>' +
+                    '<ellipse cx="8" cy="9" rx="2.2" ry="4" fill="#f8cc40" opacity="0.9"/>' +
+                    '<ellipse cx="8" cy="10" rx="1" ry="2" fill="#fff8e0"/>' +
+                    '<line x1="8" y1="14" x2="8" y2="18" stroke="#777" stroke-width="1"/>' +
+                    '<rect x="5" y="18" width="6" height="' + h + '" rx="1.5" fill="#e8d8c0"/>' +
+                    '<rect x="5" y="18" width="6" height="3" rx="1.5" fill="#dcd0b4"/>' +
+                    '</svg>';
             }
-            wandEl.appendChild(beam);
-
-            sticky.appendChild(wandEl);
-            wands.push(wandEl);
-        }
-
-        var prevIdx = -1;
-        var prevPhase = '';
-        var sparkSpawned = {};
-
-        function tickSpells() {
-            var rect = section.getBoundingClientRect();
-            var seqH = section.offsetHeight;
-            var vh = window.innerHeight;
-            var scrolled = -rect.top;
-            var total = seqH - vh;
-            if (total <= 0) { requestAnimationFrame(tickSpells); return; }
-            var p = clamp01(scrolled / total);
-
-            var rawIdx = p / perSpell;
-            var idx = Math.min(Math.floor(rawIdx), count - 1);
-            if (p <= 0) idx = -1;
-            var localP = rawIdx - idx;
-
-            /*
-             * Within each spell's scroll zone (localP 0→1):
-             *   0.00–0.20  wand slides in (cast)
-             *   0.20–0.40  wand fires (fired) + beam + sparks
-             *   0.40–0.60  spell name appears (show-name)
-             *   0.60–0.80  description appears (show-desc)
-             *   0.80–1.00  hold, then fade out
-             */
-
-            if (idx !== prevIdx) {
-                if (prevIdx >= 0 && prevIdx < count) {
-                    entries[prevIdx].classList.remove('active', 'show-name', 'show-desc');
-                    wands[prevIdx].classList.remove('cast', 'fired');
+            function createStageCandles() {
+                var n = window.innerWidth < 600 ? 10 : 16;
+                var frag = document.createDocumentFragment();
+                for (var i = 0; i < n; i++) {
+                    var c = document.createElement('div');
+                    c.className = 'stage-candle';
+                    var candleH = Math.random() * 30 + 25;
+                    var left = (Math.random() * 88 + 6);
+                    var top = (Math.random() * 35 + 5);
+                    c.style.cssText =
+                        'left:' + left + '%;' +
+                        'top:' + top + '%;' +
+                        'opacity:' + (Math.random() * 0.3 + 0.45) + ';' +
+                        '--bob-dur:' + (Math.random() * 2 + 2.5) + 's;' +
+                        '--bob-delay:-' + (Math.random() * 3) + 's;' +
+                        '--bob-y:' + (-(Math.random() * 14 + 6)) + 'px;' +
+                        '--bob-x:' + ((Math.random() - 0.5) * 10) + 'px;';
+                    var baseOp = Math.random() * 0.3 + 0.45;
+                    c.dataset.baseOp = baseOp;
+                    c.innerHTML = stageCandleSvg(candleH);
+                    frag.appendChild(c);
+                    stageCandles.push(c);
                 }
-                prevIdx = idx;
-                prevPhase = '';
-                if (idx >= 0) sparkSpawned[idx] = false;
+                stage.appendChild(frag);
             }
 
-            if (idx >= 0 && idx < count) {
-                var entry = entries[idx];
-                var wand = wands[idx];
-
-                if (localP >= 0) {
-                    entry.classList.add('active');
-                    wand.classList.add('cast');
-                }
-                if (localP >= 0.20) {
-                    wand.classList.add('fired');
-                    if (!sparkSpawned[idx]) {
-                        sparkSpawned[idx] = true;
-                        spawnWandSparks(wand, entry.getAttribute('data-side'));
-                    }
-                } else {
-                    wand.classList.remove('fired');
-                }
-                if (localP >= 0.40) {
-                    entry.classList.add('show-name');
-                } else {
-                    entry.classList.remove('show-name');
-                }
-                if (localP >= 0.60) {
-                    entry.classList.add('show-desc');
-                } else {
-                    entry.classList.remove('show-desc');
-                }
-            }
-
-            requestAnimationFrame(tickSpells);
-        }
-        requestAnimationFrame(tickSpells);
-    }
-
-    function spawnWandSparks(wandEl, side) {
-        var rect = wandEl.getBoundingClientRect();
-        var stickyRect = wandEl.parentElement.getBoundingClientRect();
-        var tipX, tipY;
-        if (side === 'left') {
-            tipX = rect.right - stickyRect.left;
-        } else {
-            tipX = rect.left - stickyRect.left;
-        }
-        tipY = rect.top + rect.height / 2 - stickyRect.top;
-        for (var i = 0; i < 10; i++) {
-            var spark = document.createElement('div');
-            spark.className = 'spell-spark';
-            var angle = (Math.PI * 2 * i) / 10 + (Math.random() - 0.5) * 0.6;
-            var dist = Math.random() * 30 + 10;
-            spark.style.left = tipX + 'px';
-            spark.style.top = tipY + 'px';
-            spark.style.setProperty('--sx', Math.cos(angle) * dist + 'px');
-            spark.style.setProperty('--sy', Math.sin(angle) * dist + 'px');
-            var size = 2 + Math.random() * 3;
-            spark.style.width = size + 'px';
-            spark.style.height = size + 'px';
-            wandEl.parentElement.appendChild(spark);
-            (function(el) { setTimeout(function() { el.remove(); }, 800); })(spark);
-        }
-    }
-
-    /* ── Marauder's Map footprints ── */
-    function footprintSvg(mirror) {
-        var tx = mirror ? ' transform="scale(-1,1) translate(-28,0)"' : '';
-        return '<svg viewBox="0 0 28 50" width="18" height="32"' + tx + '>' +
-            '<ellipse cx="14" cy="32" rx="8" ry="14" fill="#6b4423"/>' +
-            '<ellipse cx="14" cy="32" rx="5.5" ry="10" fill="#7a5430"/>' +
-            '<ellipse cx="7" cy="14" rx="3.2" ry="4.5" fill="#6b4423" transform="rotate(-8 7 14)"/>' +
-            '<ellipse cx="14" cy="11" rx="3" ry="4" fill="#6b4423"/>' +
-            '<ellipse cx="21" cy="13" rx="3.2" ry="4.5" fill="#6b4423" transform="rotate(8 21 13)"/>' +
-            '<ellipse cx="25" cy="18" rx="2.5" ry="3.5" fill="#6b4423" transform="rotate(18 25 18)"/>' +
-            '<ellipse cx="3" cy="19" rx="2.5" ry="3.5" fill="#6b4423" transform="rotate(-18 3 19)"/>' +
-            '</svg>';
-    }
-
-    function setupFootprints() {
-        var section = document.getElementById('next-chapter-section');
-        if (!section) return;
-
-        var trails = [
-            { steps: 6, startX: 5,   startY: 8,  angle: 70,  stride: 42 },
-            { steps: 5, startX: 80,  startY: 5,  angle: 100, stride: 40 },
-            { steps: 7, startX: 25,  startY: 60, angle: 55,  stride: 38 },
-            { steps: 4, startX: 70,  startY: 70, angle: 120, stride: 44 },
-            { steps: 5, startX: 50,  startY: 20, angle: 85,  stride: 40 },
-        ];
-
-        var allPairs = [];
-
-        for (var t = 0; t < trails.length; t++) {
-            var tr = trails[t];
-            var rad = tr.angle * Math.PI / 180;
-            var dx = Math.cos(rad) * tr.stride;
-            var dy = Math.sin(rad) * tr.stride;
-            for (var s = 0; s < tr.steps; s++) {
-                var pair = document.createElement('div');
-                pair.className = 'footprint-pair';
-                var px = tr.startX + (dx * s) / section.offsetWidth * 100;
-                var py = tr.startY + (dy * s) / section.offsetHeight * 100;
-                var leftFoot = document.createElement('span');
-                leftFoot.innerHTML = footprintSvg(false);
-                leftFoot.style.cssText = 'position:absolute;left:-12px;top:0;';
-                var rightFoot = document.createElement('span');
-                rightFoot.innerHTML = footprintSvg(true);
-                rightFoot.style.cssText = 'position:absolute;left:12px;top:0;';
-
-                pair.appendChild(leftFoot);
-                pair.appendChild(rightFoot);
-                pair.style.left = px + '%';
-                pair.style.top = py + '%';
-                pair.style.transform = 'rotate(' + (tr.angle - 90) + 'deg)';
-
-                var baseDelay = t * 2.8 + s * 0.55;
-                pair.style.setProperty('--delay', baseDelay + 's');
-                pair.style.setProperty('--dur', '3s');
-
-                section.appendChild(pair);
-                allPairs.push(pair);
-            }
-        }
-
-        var triggered = false;
-        function startWalking() {
-            for (var i = 0; i < allPairs.length; i++) {
-                allPairs[i].classList.add('walking');
-            }
-        }
-        function loopWalking() {
-            for (var i = 0; i < allPairs.length; i++) {
-                allPairs[i].classList.remove('walking');
-            }
-            void section.offsetWidth;
-            for (var i = 0; i < allPairs.length; i++) {
-                allPairs[i].classList.add('walking');
-            }
-        }
-
-        var loopIv;
-        var obs = new IntersectionObserver(function(entries) {
-            entries.forEach(function(e) {
-                if (e.isIntersecting && !triggered) {
-                    triggered = true;
-                    startWalking();
-                    var maxDelay = trails.length * 2.8 + 7 * 0.55 + 3;
-                    loopIv = setInterval(loopWalking, maxDelay * 1000);
-                }
-            });
-        }, { threshold: 0.15 });
-        obs.observe(section);
-    }
-
-    /* ── MAGIC → MAGI.ai animation ── */
-    var magicTriggered = false;
-
-    function spawnMagicDust(container, cx, cy, count) {
-        for (var i = 0; i < count; i++) {
-            var d = document.createElement('div');
-            d.className = 'magic-dust';
-            var size = 3 + Math.random() * 6;
-            var angle = Math.random() * Math.PI * 2;
-            var dist = 20 + Math.random() * 60;
-            d.style.width = size + 'px';
-            d.style.height = size + 'px';
-            d.style.left = (cx + (Math.random() - 0.5) * 80) + 'px';
-            d.style.top = (cy + (Math.random() - 0.5) * 40) + 'px';
-            d.style.setProperty('--dx', Math.cos(angle) * dist + 'px');
-            d.style.setProperty('--dy', (Math.sin(angle) * dist - 20) + 'px');
-            d.style.setProperty('--dd', (1.2 + Math.random() * 1.2) + 's');
-            d.style.animationDelay = (Math.random() * 0.4) + 's';
-            container.appendChild(d);
-            (function(el) { setTimeout(function() { el.remove(); }, 3000); })(d);
-        }
-    }
-
-    function setupMagicObserver() {
-        var section = document.getElementById('magic-section');
-        var magicC = document.getElementById('magic-c');
-        var magicAi = document.getElementById('magic-ai');
-        var fwCanvas = document.getElementById('fireworks-canvas');
-
-        var obs = new IntersectionObserver(function(entries) {
-            entries.forEach(function(e) {
-                if (!e.isIntersecting || magicTriggered) return;
-                magicTriggered = true;
-
-                var sRect = section.getBoundingClientRect();
-                var sCx = section.offsetWidth / 2;
-                var sCy = section.offsetHeight / 2;
-                spawnMagicDust(section, sCx, sCy - 30, 30);
-
-                setTimeout(function() {
-                    section.classList.add('phase-lead');
-                }, 300);
-
-                setTimeout(function() {
-                    section.classList.add('phase-word');
-                    spawnMagicDust(section, sCx, sCy + 20, 40);
-                }, 900);
-
-                setTimeout(function() {
-                    section.classList.add('revealed');
-                }, 1600);
-
-                setTimeout(function() {
-                    magicC.classList.add('falling');
-                    launchFireworks(fwCanvas);
-
-                    setTimeout(function() {
-                        magicAi.classList.add('visible');
-                    }, 700);
-                }, 2400);
-
-                obs.unobserve(section);
-            });
-        }, { threshold: 0.25 });
-        obs.observe(section);
-    }
-
-    function launchFireworks(container) {
-        var rect = container.getBoundingClientRect();
-        var w = container.offsetWidth;
-        var h = container.offsetHeight;
-        var colors = ['#ffd700', '#ff6b6b', '#fff', '#c9a84c', '#ff9f43', '#ee5a24', '#f8c291'];
-
-        function burst(cx, cy, delay) {
-            setTimeout(function() {
-                var count = 28 + Math.floor(Math.random() * 16);
+            /* ── Stars ── */
+            function createStars() {
+                var count = window.innerWidth < 600 ? 80 : 150;
+                var frag = document.createDocumentFragment();
                 for (var i = 0; i < count; i++) {
-                    var p = document.createElement('div');
-                    p.className = 'fw-particle';
-                    var angle = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.3;
-                    var dist = Math.random() * 100 + 50;
+                    var s = document.createElement('div');
+                    s.className = 'star';
+                    var sz = (Math.random() * 2.2 + 0.6) + 'px';
+                    s.style.cssText =
+                        'left:' + (Math.random() * 100) + '%;' +
+                        'top:' + (Math.random() * 100) + '%;' +
+                        'width:' + sz + ';height:' + sz + ';' +
+                        '--dur:' + (Math.random() * 3 + 2) + 's;' +
+                        '--delay:' + (Math.random() * 5) + 's;';
+                    frag.appendChild(s);
+                }
+                stage.appendChild(frag);
+            }
+
+            /* ── Candles (letter background) ── */
+            function candleSvg() {
+                return '<svg viewBox="0 0 24 70" width="20" height="58">' +
+                    '<ellipse class="candle-flame" cx="12" cy="12" rx="4" ry="7" fill="#e0a020" opacity="0.7"/>' +
+                    '<ellipse cx="12" cy="13" rx="2.5" ry="4.5" fill="#f0c840" opacity="0.8"/>' +
+                    '<ellipse cx="12" cy="14" rx="1.2" ry="2.5" fill="#fff4d0"/>' +
+                    '<line x1="12" y1="18" x2="12" y2="22" stroke="#888" stroke-width="1.2"/>' +
+                    '<rect x="7" y="22" width="10" height="44" rx="2" fill="#e8d8c0" opacity="0.6"/>' +
+                    '</svg>';
+            }
+            function createCandles() {
+                var n = window.innerWidth < 600 ? 5 : 9;
+                var frag = document.createDocumentFragment();
+                for (var i = 0; i < n; i++) {
+                    var c = document.createElement('div');
+                    c.className = 'floating-candle';
+                    c.style.cssText =
+                        'left:' + (Math.random() * 92 + 4) + '%;' +
+                        'opacity:' + (Math.random() * 0.08 + 0.06) + ';' +
+                        '--dur:' + (Math.random() * 12 + 16) + 's;' +
+                        '--delay:-' + (Math.random() * 20) + 's;' +
+                        '--drift:' + ((Math.random() - 0.5) * 40) + 'px;';
+                    c.innerHTML = candleSvg();
+                    frag.appendChild(c);
+                }
+                candleLay.appendChild(frag);
+            }
+
+            /* ── Particles ── */
+            var sparklesSpawned = false;
+            function spawnSparkles(cx, cy) {
+                if (sparklesSpawned) return;
+                sparklesSpawned = true;
+                for (var i = 0; i < 24; i++) {
+                    var sp = document.createElement('div');
+                    sp.className = 'sparkle';
+                    sp.style.left = cx + 'px';
+                    sp.style.top = cy + 'px';
+                    var angle = (Math.PI * 2 * i) / 24 + (Math.random() - 0.5) * 0.5;
+                    var dist = Math.random() * 80 + 40;
                     var dx = Math.cos(angle) * dist;
                     var dy = Math.sin(angle) * dist;
-                    var sz = (Math.random() * 4 + 2) + 'px';
-                    var col = colors[Math.floor(Math.random() * colors.length)];
-                    p.style.cssText =
-                        'left:' + cx + 'px;top:' + cy + 'px;' +
-                        'width:' + sz + ';height:' + sz + ';' +
-                        'background:' + col + ';' +
-                        'box-shadow:0 0 6px ' + col + ';';
-                    container.appendChild(p);
-                    var dur = (0.6 + Math.random() * 0.6);
-                    (function(el, ddx, ddy, d) {
-                        requestAnimationFrame(function() {
-                            el.style.transition = 'all ' + d + 's cubic-bezier(0.15,0.8,0.3,1)';
+                    var size = (Math.random() * 4 + 2) + 'px';
+                    sp.style.width = size;
+                    sp.style.height = size;
+                    stage.appendChild(sp);
+                    (function (el, ddx, ddy) {
+                        requestAnimationFrame(function () {
+                            el.style.transition = 'all ' + (0.6 + Math.random() * 0.4) + 's cubic-bezier(0.2,0,0.3,1)';
                             el.style.transform = 'translate(' + ddx + 'px,' + ddy + 'px) scale(0)';
                             el.style.opacity = '0';
                         });
-                    })(p, dx, dy, dur);
-                    setTimeout((function(pp) { return function() { pp.remove(); }; })(p), 1400);
+                    })(sp, dx, dy);
+                    setTimeout((function (el) { return function () { el.remove(); }; })(sp), 1200);
                 }
-            }, delay);
-        }
+            }
 
-        burst(w * 0.25, h * 0.3, 0);
-        burst(w * 0.75, h * 0.25, 300);
-        burst(w * 0.5, h * 0.15, 600);
-        burst(w * 0.2, h * 0.5, 900);
-        burst(w * 0.8, h * 0.45, 1100);
-        burst(w * 0.5, h * 0.55, 1400);
-        burst(w * 0.35, h * 0.2, 1700);
-        burst(w * 0.65, h * 0.35, 2000);
-    }
-
-    /* ── Scroll Observer for letter content ── */
-    function setupLetterObservers() {
-        var obs = new IntersectionObserver(function(entries) {
-            entries.forEach(function(e) {
-                if (!e.isIntersecting) return;
-                var t = e.target;
-                if (t.classList.contains('salutation') || t.classList.contains('farewell-block')) {
-                    t.classList.add('revealed');
+            /* ── Scroll-driven Spells with unique wands ── */
+            var wandDesigns = [
+                function () {
+                    return '<svg viewBox="0 0 180 16" width="280" height="25">' +
+                        '<line x1="30" y1="8" x2="175" y2="8" stroke="#3d1e0a" stroke-width="3.5" stroke-linecap="round"/>' +
+                        '<line x1="5" y1="8" x2="35" y2="8" stroke="#5a3820" stroke-width="5" stroke-linecap="round"/>' +
+                        '<ellipse cx="8" cy="8" rx="6" ry="6" fill="#6a4820" stroke="#4a2a10" stroke-width="0.8"/>' +
+                        '<rect x="18" y="5" width="10" height="6" rx="2" fill="#4a2a10"/>' +
+                        '<circle cx="177" cy="8" r="3" fill="#c9a84c"/></svg>';
+                },
+                function () {
+                    return '<svg viewBox="0 0 170 16" width="270" height="25">' +
+                        '<line x1="20" y1="8" x2="165" y2="8" stroke="#2a1508" stroke-width="2.8" stroke-linecap="round"/>' +
+                        '<path d="M5,8 Q10,3 20,8 Q10,13 5,8Z" fill="#7a5828" stroke="#5a3820" stroke-width="0.6"/>' +
+                        '<line x1="22" y1="5" x2="22" y2="11" stroke="#5a3820" stroke-width="1.2"/>' +
+                        '<line x1="26" y1="5" x2="26" y2="11" stroke="#5a3820" stroke-width="0.8"/>' +
+                        '<circle cx="167" cy="8" r="2.5" fill="#e8c840"/></svg>';
+                },
+                function () {
+                    return '<svg viewBox="0 0 190 18" width="300" height="28">' +
+                        '<path d="M35,9 Q80,7 130,9 Q160,10 185,9" stroke="#4a2a15" stroke-width="3" fill="none" stroke-linecap="round"/>' +
+                        '<ellipse cx="12" cy="9" rx="10" ry="7" fill="#5a3820" stroke="#3d1e0a" stroke-width="0.8"/>' +
+                        '<ellipse cx="12" cy="9" rx="6" ry="4" fill="#7a5828"/>' +
+                        '<line x1="24" y1="6" x2="24" y2="12" stroke="#3d1e0a" stroke-width="1.5"/>' +
+                        '<circle cx="187" cy="9" r="2.8" fill="#c9a84c"/></svg>';
+                },
+                function () {
+                    return '<svg viewBox="0 0 175 16" width="260" height="24">' +
+                        '<line x1="28" y1="8" x2="170" y2="8" stroke="#1a0a02" stroke-width="2.5" stroke-linecap="round"/>' +
+                        '<line x1="28" y1="8" x2="60" y2="8" stroke="#3d1e0a" stroke-width="4" stroke-linecap="round"/>' +
+                        '<rect x="5" y="3" width="22" height="10" rx="3" fill="#6a4820" stroke="#4a2a10" stroke-width="0.6"/>' +
+                        '<line x1="14" y1="4" x2="14" y2="12" stroke="#8a6840" stroke-width="0.6"/>' +
+                        '<line x1="18" y1="4" x2="18" y2="12" stroke="#8a6840" stroke-width="0.6"/>' +
+                        '<circle cx="172" cy="8" r="2.5" fill="#ffd700"/></svg>';
+                },
+                function () {
+                    return '<svg viewBox="0 0 185 18" width="290" height="28">' +
+                        '<path d="M30,9 C60,7 100,11 140,8 C160,7 180,9 182,9" stroke="#5a3020" stroke-width="3.2" fill="none" stroke-linecap="round"/>' +
+                        '<circle cx="10" cy="9" r="8" fill="#4a2a15" stroke="#3d1e0a" stroke-width="0.8"/>' +
+                        '<circle cx="10" cy="9" r="4.5" fill="none" stroke="#8a6840" stroke-width="0.6"/>' +
+                        '<circle cx="10" cy="9" r="2" fill="#8a6840"/>' +
+                        '<line x1="20" y1="6.5" x2="20" y2="11.5" stroke="#3d1e0a" stroke-width="1.2"/>' +
+                        '<circle cx="184" cy="9" r="3" fill="#c9a84c"/></svg>';
                 }
-                if (t.classList.contains('ink-reveal')) {
-                    t.classList.add('revealed');
+            ];
+
+            function setupSpellsScroll() {
+                var section = document.getElementById('spells-section');
+                var sticky = document.getElementById('spells-sticky');
+                if (!section || !sticky) return;
+
+                var entries = section.querySelectorAll('.spell-entry');
+                var count = entries.length;
+                var perSpell = 1 / count;
+
+                section.style.height = (count * 120 + 60) + 'vh';
+
+                var wands = [];
+                for (var i = 0; i < count; i++) {
+                    var entry = entries[i];
+                    var side = entry.getAttribute('data-side');
+                    var wandIdx = parseInt(entry.getAttribute('data-wand'), 10);
+
+                    var wandEl = document.createElement('div');
+                    wandEl.className = 'spell-wand ' + (side === 'right' ? 'from-right' : 'from-left');
+                    wandEl.innerHTML = wandDesigns[wandIdx]();
+
+                    var glow = document.createElement('div');
+                    glow.className = 'wand-glow';
+                    wandEl.appendChild(glow);
+
+                    var beam = document.createElement('div');
+                    beam.className = 'spell-beam';
+                    beam.style.width = 'calc(50vw - 40px)';
+                    if (side === 'left') {
+                        beam.style.left = '100%';
+                    } else {
+                        beam.style.right = '100%';
+                    }
+                    wandEl.appendChild(beam);
+
+                    sticky.appendChild(wandEl);
+                    wands.push(wandEl);
                 }
-                obs.unobserve(t);
-            });
-        }, { threshold: 0.2 });
 
-        document.querySelectorAll('[data-reveal]').forEach(function(el) {
-            obs.observe(el);
-        });
-    }
+                var prevIdx = -1;
+                var prevPhase = '';
+                var sparkSpawned = {};
 
-    /* ── Candle layer visibility ── */
-    function setupCandleVisibility() {
-        var lc = document.getElementById('letter-content');
-        var obs = new IntersectionObserver(function(entries) {
-            entries.forEach(function(e) {
-                candleLay.classList.toggle('active', e.isIntersecting);
-            });
-        }, { threshold: 0.01 });
-        obs.observe(lc);
-    }
+                function tickSpells() {
+                    var rect = section.getBoundingClientRect();
+                    var seqH = section.offsetHeight;
+                    var vh = window.innerHeight;
+                    var scrolled = -rect.top;
+                    var total = seqH - vh;
+                    if (total <= 0) { requestAnimationFrame(tickSpells); return; }
+                    var p = clamp01(scrolled / total);
 
-    /* ══════════════════════════════════════
-       SCROLL ENGINE — drives intro animation
-       ══════════════════════════════════════ */
-    var lastP = -1;
-    var vh, spacerH, scrollable;
+                    var rawIdx = p / perSpell;
+                    var idx = Math.min(Math.floor(rawIdx), count - 1);
+                    if (p <= 0) idx = -1;
+                    var localP = rawIdx - idx;
 
-    function measure() {
-        vh = window.innerHeight;
-        spacerH = spacer.offsetHeight;
-        scrollable = spacerH - vh;
-    }
+                    /*
+                     * Within each spell's scroll zone (localP 0→1):
+                     *   0.00–0.20  wand slides in (cast)
+                     *   0.20–0.40  wand fires (fired) + beam + sparks
+                     *   0.40–0.60  spell name appears (show-name)
+                     *   0.60–0.80  description appears (show-desc)
+                     *   0.80–1.00  hold, then fade out
+                     */
 
-    function tick() {
-        var top = spacer.getBoundingClientRect().top;
-        var p = clamp01(-top / scrollable);
+                    if (idx !== prevIdx) {
+                        if (prevIdx >= 0 && prevIdx < count) {
+                            entries[prevIdx].classList.remove('active', 'show-name', 'show-desc');
+                            wands[prevIdx].classList.remove('cast', 'fired');
+                        }
+                        prevIdx = idx;
+                        prevPhase = '';
+                        if (idx >= 0) sparkSpawned[idx] = false;
+                    }
 
-        if (Math.abs(p - lastP) > 0.0001) {
-            lastP = p;
-            updateIntro(p);
-        }
-        requestAnimationFrame(tick);
-    }
+                    if (idx >= 0 && idx < count) {
+                        var entry = entries[idx];
+                        var wand = wands[idx];
 
-    function updateIntro(p) {
-        /* Scroll hint */
-        hint.style.opacity = p < 0.03 ? 1 - p / 0.03 : 0;
+                        if (localP >= 0) {
+                            entry.classList.add('active');
+                            wand.classList.add('cast');
+                        }
+                        if (localP >= 0.20) {
+                            wand.classList.add('fired');
+                            if (!sparkSpawned[idx]) {
+                                sparkSpawned[idx] = true;
+                                spawnWandSparks(wand, entry.getAttribute('data-side'));
+                            }
+                        } else {
+                            wand.classList.remove('fired');
+                        }
+                        if (localP >= 0.40) {
+                            entry.classList.add('show-name');
+                        } else {
+                            entry.classList.remove('show-name');
+                        }
+                        if (localP >= 0.60) {
+                            entry.classList.add('show-desc');
+                        } else {
+                            entry.classList.remove('show-desc');
+                        }
+                    }
 
-        /* Stage candles — fade out as owl approaches */
-        var candleFade = 1 - clamp01(phase(p, 0.08, 0.35));
-        for (var ci = 0; ci < stageCandles.length; ci++) {
-            stageCandles[ci].style.opacity = stageCandles[ci].dataset.baseOp * candleFade;
-        }
-
-        /* ── OWL APPROACH (p 0.00 → 0.42) ── */
-        var owlP = phase(p, 0.0, 0.42);
-        var owlLeave = phase(p, 0.42, 0.54);
-        var owlVisible = owlLeave < 1;
-
-        if (owlVisible) {
-            var sc = lerp(0.015, 1.0, easeInOut(owlP));
-            var oy = lerp(-35, 2, easeInOut(owlP));
-            if (owlLeave > 0) {
-                oy += lerp(0, -60, easeIn(owlLeave));
-                sc += lerp(0, 0.3, owlLeave);
-            }
-            var fadeIn = clamp01(owlP * 5);
-            var fadeOut = owlLeave > 0 ? 1 - easeIn(owlLeave) : 1;
-            owl.style.transform = 'translate(-50%, calc(-50% + ' + oy + 'vh)) scale(' + sc + ')';
-            owl.style.opacity = fadeIn * fadeOut;
-
-            var flapDur = lerp(0.22, 0.55, easeOut(owlP));
-            wingL.style.animationDuration = flapDur + 's';
-            wingR.style.animationDuration = flapDur + 's';
-
-            if (owlLeave > 0) {
-                owlLetter.style.opacity = 1 - clamp01(owlLeave * 3);
-            } else {
-                owlLetter.style.opacity = '1';
-            }
-        } else {
-            owl.style.opacity = '0';
-        }
-
-        /* ── ENVELOPE DROP & GROW phase 1 (p 0.42 → 0.60) ── */
-        var envAppear = phase(p, 0.42, 0.50);
-        var envGrow1 = phase(p, 0.50, 0.60);
-        var envVisible = envAppear > 0;
-
-        var baseW = stage.offsetWidth < 600 ? 160 : 280;
-        var targetScale = Math.max(stage.offsetWidth / baseW, vh / (baseW * 0.714)) * 1.15;
-        var midScale = Math.min(2.8, targetScale * 0.45);
-
-        if (envVisible) {
-            var envFadeIn = clamp01(envAppear * 4);
-            var envSc;
-
-            /* ── FLAP OPEN (p 0.60 → 0.73) — while envelope is at midScale ── */
-            var flapP = phase(p, 0.60, 0.73);
-
-            /* ── ENVELOPE GROW phase 2 (p 0.73 → 0.88) ── */
-            var envGrow2 = phase(p, 0.73, 0.88);
-
-            if (envGrow2 > 0) {
-                envSc = lerp(midScale, targetScale, easeInOut(envGrow2));
-            } else if (envGrow1 > 0) {
-                envSc = lerp(1, midScale, easeOut(envGrow1));
-            } else {
-                envSc = lerp(0.45, 1, easeOut(envAppear));
-            }
-
-            var envY = lerp(8, 0, easeOut(envAppear));
-            envWrap.style.transform = 'translate(-50%, calc(-50% + ' + envY + 'vh)) scale(' + envSc + ')';
-            envWrap.style.opacity = envFadeIn;
-
-            envFlap.style.transform = 'rotateX(' + (180 * easeInOut(flapP)) + 'deg)';
-
-            if (flapP > 0.05 && flapP < 0.4) {
-                var sealRect = envSeal.getBoundingClientRect();
-                spawnSparkles(sealRect.left + sealRect.width / 2, sealRect.top + sealRect.height / 2);
-            }
-            envSeal.style.opacity = 1 - clamp01(flapP * 3);
-        } else {
-            envWrap.style.opacity = '0';
-        }
-
-        /* ── TRANSITION TO PARCHMENT (p 0.86 → 1.0) ── */
-        var transP = phase(p, 0.86, 1.0);
-        overlay.style.opacity = easeInOut(transP);
-
-        envChrome.forEach(function(el) {
-            el.style.opacity = 1 - clamp01(transP * 2);
-        });
-    }
-
-    /* ── INIT ── */
-    /* ── Broom flyby animation ── */
-    function setupBroomFlyby() {
-        var scene = document.getElementById('broom-scene');
-        var rider = document.getElementById('broom-rider');
-        if (!scene || !rider) return;
-
-        var triggered = false;
-
-        function spawnSparkle(x, y) {
-            var el = document.createElement('div');
-            el.className = 'broom-sparkle';
-            var ox = (Math.random() - 0.5) * 24;
-            var oy = (Math.random() - 0.5) * 20;
-            var size = 3 + Math.random() * 5;
-            el.style.left = x + ox + 'px';
-            el.style.top = y + oy + 'px';
-            el.style.width = size + 'px';
-            el.style.height = size + 'px';
-            scene.appendChild(el);
-            setTimeout(function() { el.remove(); }, 1000);
-        }
-
-        function spawnStar(x, y) {
-            var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-            svg.setAttribute('viewBox', '0 0 20 20');
-            svg.setAttribute('width', '12');
-            svg.setAttribute('height', '12');
-            svg.classList.add('broom-star');
-            var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-            path.setAttribute('d', 'M10 0 L12.5 7.5 L20 10 L12.5 12.5 L10 20 L7.5 12.5 L0 10 L7.5 7.5Z');
-            path.setAttribute('fill', '#c9a84c');
-            svg.appendChild(path);
-            var ox = (Math.random() - 0.5) * 30;
-            var oy = (Math.random() - 0.5) * 30;
-            svg.style.left = (x + ox - 6) + 'px';
-            svg.style.top = (y + oy - 6) + 'px';
-            scene.appendChild(svg);
-            setTimeout(function() { svg.remove(); }, 1300);
-        }
-
-        function emitTrail() {
-            var rect = rider.getBoundingClientRect();
-            var sceneRect = scene.getBoundingClientRect();
-            var tailX = rect.left - sceneRect.left + rect.width * 0.1;
-            var tailY = rect.top - sceneRect.top + rect.height * 0.6;
-            for (var i = 0; i < 2; i++) spawnSparkle(tailX, tailY);
-            if (Math.random() < 0.35) spawnStar(tailX, tailY);
-        }
-
-        function startTrail() {
-            var start = performance.now();
-            var duration = 3600;
-            function loop(now) {
-                if (now - start > duration) return;
-                emitTrail();
-                requestAnimationFrame(loop);
-            }
-            requestAnimationFrame(loop);
-        }
-
-        var obs = new IntersectionObserver(function(entries) {
-            entries.forEach(function(e) {
-                if (e.isIntersecting && !triggered) {
-                    triggered = true;
-                    rider.classList.add('fly');
-                    startTrail();
-                    obs.disconnect();
+                    requestAnimationFrame(tickSpells);
                 }
-            });
-        }, { threshold: 0.4 });
-        obs.observe(scene);
-    }
+                requestAnimationFrame(tickSpells);
+            }
 
-    /* ── Marauder's Map closing sequence ── */
-    function setupMapSequence() {
-        var seqEl      = document.getElementById('map-sequence');
-        var mapEl      = document.getElementById('marauders-map');
-        var mapOuter   = document.getElementById('map-outer');
-        var mapFront   = document.getElementById('map-front');
-        var foldTop    = document.getElementById('map-fold-top');
-        var foldBottom = document.getElementById('map-fold-bottom');
-        var mischiefTx = document.getElementById('mischief-text');
-        var finalMsg   = document.getElementById('final-message');
-        if (!seqEl || !mapEl) return;
+            function spawnWandSparks(wandEl, side) {
+                var rect = wandEl.getBoundingClientRect();
+                var stickyRect = wandEl.parentElement.getBoundingClientRect();
+                var tipX, tipY;
+                if (side === 'left') {
+                    tipX = rect.right - stickyRect.left;
+                } else {
+                    tipX = rect.left - stickyRect.left;
+                }
+                tipY = rect.top + rect.height / 2 - stickyRect.top;
+                for (var i = 0; i < 10; i++) {
+                    var spark = document.createElement('div');
+                    spark.className = 'spell-spark';
+                    var angle = (Math.PI * 2 * i) / 10 + (Math.random() - 0.5) * 0.6;
+                    var dist = Math.random() * 30 + 10;
+                    spark.style.left = tipX + 'px';
+                    spark.style.top = tipY + 'px';
+                    spark.style.setProperty('--sx', Math.cos(angle) * dist + 'px');
+                    spark.style.setProperty('--sy', Math.sin(angle) * dist + 'px');
+                    var size = 2 + Math.random() * 3;
+                    spark.style.width = size + 'px';
+                    spark.style.height = size + 'px';
+                    wandEl.parentElement.appendChild(spark);
+                    (function (el) { setTimeout(function () { el.remove(); }, 800); })(spark);
+                }
+            }
 
-        var lastSeqP = -1;
-        function tickMap() {
-            var rect = seqEl.getBoundingClientRect();
-            var seqH = seqEl.offsetHeight;
-            var vh = window.innerHeight;
-            var scrolled = -rect.top;
-            var total = seqH - vh;
-            if (total <= 0) { requestAnimationFrame(tickMap); return; }
-            var p = clamp01(scrolled / total);
+            /* ── Marauder's Map footprints ── */
+            function footprintSvg(mirror) {
+                var tx = mirror ? ' transform="scale(-1,1) translate(-28,0)"' : '';
+                return '<svg viewBox="0 0 28 50" width="18" height="32"' + tx + '>' +
+                    '<ellipse cx="14" cy="32" rx="8" ry="14" fill="#6b4423"/>' +
+                    '<ellipse cx="14" cy="32" rx="5.5" ry="10" fill="#7a5430"/>' +
+                    '<ellipse cx="7" cy="14" rx="3.2" ry="4.5" fill="#6b4423" transform="rotate(-8 7 14)"/>' +
+                    '<ellipse cx="14" cy="11" rx="3" ry="4" fill="#6b4423"/>' +
+                    '<ellipse cx="21" cy="13" rx="3.2" ry="4.5" fill="#6b4423" transform="rotate(8 21 13)"/>' +
+                    '<ellipse cx="25" cy="18" rx="2.5" ry="3.5" fill="#6b4423" transform="rotate(18 25 18)"/>' +
+                    '<ellipse cx="3" cy="19" rx="2.5" ry="3.5" fill="#6b4423" transform="rotate(-18 3 19)"/>' +
+                    '</svg>';
+            }
 
-            if (Math.abs(p - lastSeqP) < 0.0002) {
+            function setupFootprints() {
+                var section = document.getElementById('next-chapter-section');
+                if (!section) return;
+
+                var trails = [
+                    { steps: 6, startX: 5, startY: 8, angle: 70, stride: 42 },
+                    { steps: 5, startX: 80, startY: 5, angle: 100, stride: 40 },
+                    { steps: 7, startX: 25, startY: 60, angle: 55, stride: 38 },
+                    { steps: 4, startX: 70, startY: 70, angle: 120, stride: 44 },
+                    { steps: 5, startX: 50, startY: 20, angle: 85, stride: 40 },
+                ];
+
+                var allPairs = [];
+
+                for (var t = 0; t < trails.length; t++) {
+                    var tr = trails[t];
+                    var rad = tr.angle * Math.PI / 180;
+                    var dx = Math.cos(rad) * tr.stride;
+                    var dy = Math.sin(rad) * tr.stride;
+                    for (var s = 0; s < tr.steps; s++) {
+                        var pair = document.createElement('div');
+                        pair.className = 'footprint-pair';
+                        var px = tr.startX + (dx * s) / section.offsetWidth * 100;
+                        var py = tr.startY + (dy * s) / section.offsetHeight * 100;
+                        var leftFoot = document.createElement('span');
+                        leftFoot.innerHTML = footprintSvg(false);
+                        leftFoot.style.cssText = 'position:absolute;left:-12px;top:0;';
+                        var rightFoot = document.createElement('span');
+                        rightFoot.innerHTML = footprintSvg(true);
+                        rightFoot.style.cssText = 'position:absolute;left:12px;top:0;';
+
+                        pair.appendChild(leftFoot);
+                        pair.appendChild(rightFoot);
+                        pair.style.left = px + '%';
+                        pair.style.top = py + '%';
+                        pair.style.transform = 'rotate(' + (tr.angle - 90) + 'deg)';
+
+                        var baseDelay = t * 2.8 + s * 0.55;
+                        pair.style.setProperty('--delay', baseDelay + 's');
+                        pair.style.setProperty('--dur', '3s');
+
+                        section.appendChild(pair);
+                        allPairs.push(pair);
+                    }
+                }
+
+                var triggered = false;
+                function startWalking() {
+                    for (var i = 0; i < allPairs.length; i++) {
+                        allPairs[i].classList.add('walking');
+                    }
+                }
+                function loopWalking() {
+                    for (var i = 0; i < allPairs.length; i++) {
+                        allPairs[i].classList.remove('walking');
+                    }
+                    void section.offsetWidth;
+                    for (var i = 0; i < allPairs.length; i++) {
+                        allPairs[i].classList.add('walking');
+                    }
+                }
+
+                var loopIv;
+                var obs = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (e) {
+                        if (e.isIntersecting && !triggered) {
+                            triggered = true;
+                            startWalking();
+                            var maxDelay = trails.length * 2.8 + 7 * 0.55 + 3;
+                            loopIv = setInterval(loopWalking, maxDelay * 1000);
+                        }
+                    });
+                }, { threshold: 0.15 });
+                obs.observe(section);
+            }
+
+            /* ── MAGIC → MAGI.ai animation (scroll-driven) ── */
+            function spawnMagicDust(container, cx, cy, count) {
+                for (var i = 0; i < count; i++) {
+                    var d = document.createElement('div');
+                    d.className = 'magic-dust';
+                    var size = 3 + Math.random() * 6;
+                    var angle = Math.random() * Math.PI * 2;
+                    var dist = 20 + Math.random() * 60;
+                    d.style.width = size + 'px';
+                    d.style.height = size + 'px';
+                    d.style.left = (cx + (Math.random() - 0.5) * 80) + 'px';
+                    d.style.top = (cy + (Math.random() - 0.5) * 40) + 'px';
+                    d.style.setProperty('--dx', Math.cos(angle) * dist + 'px');
+                    d.style.setProperty('--dy', (Math.sin(angle) * dist - 20) + 'px');
+                    d.style.setProperty('--dd', (1.2 + Math.random() * 1.2) + 's');
+                    d.style.animationDelay = (Math.random() * 0.4) + 's';
+                    container.appendChild(d);
+                    (function (el) { setTimeout(function () { el.remove(); }, 3000); })(d);
+                }
+            }
+
+            function setupMagicScroll() {
+                var scrollWrap = document.getElementById('magic-scroll');
+                var section = document.getElementById('magic-section');
+                var magicC = document.getElementById('magic-c');
+                var magicAi = document.getElementById('magic-ai');
+                var fwCanvas = document.getElementById('fireworks-canvas');
+                if (!scrollWrap || !section) return;
+
+                var dustFired1 = false, dustFired2 = false, fwFired = false;
+                var lastP = -1;
+
+                function tickMagic() {
+                    var rect = scrollWrap.getBoundingClientRect();
+                    var seqH = scrollWrap.offsetHeight;
+                    var vh = window.innerHeight;
+                    var scrolled = -rect.top;
+                    var total = seqH - vh;
+                    if (total <= 0) { requestAnimationFrame(tickMagic); return; }
+                    var p = clamp01(scrolled / total);
+
+                    if (Math.abs(p - lastP) < 0.0003) {
+                        requestAnimationFrame(tickMagic);
+                        return;
+                    }
+                    lastP = p;
+
+                    /*
+                     * Phase 1 (p 0.05→0.15): "Time to make your own" fades in
+                     * Phase 2 (p 0.15→0.30): MAGIC letters appear (staggered via CSS delays)
+                     * Phase 3 (p 0.30→0.42): Letters turn gold
+                     * Phase 4 (p 0.42→0.55): C falls away
+                     * Phase 5 (p 0.55→0.65): .ai appears + fireworks
+                     * Phase 6 (p 0.65→1.0): Everything lingers on screen
+                     */
+
+                    var sCx = section.offsetWidth / 2;
+                    var sCy = section.offsetHeight / 2;
+
+                    if (p >= 0.05) {
+                        section.classList.add('phase-lead');
+                        if (!dustFired1) { dustFired1 = true; spawnMagicDust(section, sCx, sCy - 30, 30); }
+                    } else {
+                        section.classList.remove('phase-lead');
+                    }
+
+                    if (p >= 0.15) {
+                        section.classList.add('phase-word');
+                        if (!dustFired2) { dustFired2 = true; spawnMagicDust(section, sCx, sCy + 20, 40); }
+                    } else {
+                        section.classList.remove('phase-word');
+                    }
+
+                    if (p >= 0.30) {
+                        section.classList.add('revealed');
+                    } else {
+                        section.classList.remove('revealed');
+                    }
+
+                    if (p >= 0.42) {
+                        magicC.classList.add('falling');
+                    } else {
+                        magicC.classList.remove('falling');
+                    }
+
+                    if (p >= 0.55) {
+                        magicAi.classList.add('visible');
+                        if (!fwFired) { fwFired = true; launchFireworks(fwCanvas); }
+                    } else {
+                        magicAi.classList.remove('visible');
+                    }
+
+                    requestAnimationFrame(tickMagic);
+                }
+                requestAnimationFrame(tickMagic);
+            }
+
+            function launchFireworks(container) {
+                var rect = container.getBoundingClientRect();
+                var w = container.offsetWidth;
+                var h = container.offsetHeight;
+                var colors = ['#ffd700', '#ff6b6b', '#fff', '#c9a84c', '#ff9f43', '#ee5a24', '#f8c291'];
+
+                function burst(cx, cy, delay) {
+                    setTimeout(function () {
+                        var count = 28 + Math.floor(Math.random() * 16);
+                        for (var i = 0; i < count; i++) {
+                            var p = document.createElement('div');
+                            p.className = 'fw-particle';
+                            var angle = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.3;
+                            var dist = Math.random() * 100 + 50;
+                            var dx = Math.cos(angle) * dist;
+                            var dy = Math.sin(angle) * dist;
+                            var sz = (Math.random() * 4 + 2) + 'px';
+                            var col = colors[Math.floor(Math.random() * colors.length)];
+                            p.style.cssText =
+                                'left:' + cx + 'px;top:' + cy + 'px;' +
+                                'width:' + sz + ';height:' + sz + ';' +
+                                'background:' + col + ';' +
+                                'box-shadow:0 0 6px ' + col + ';';
+                            container.appendChild(p);
+                            var dur = (0.6 + Math.random() * 0.6);
+                            (function (el, ddx, ddy, d) {
+                                requestAnimationFrame(function () {
+                                    el.style.transition = 'all ' + d + 's cubic-bezier(0.15,0.8,0.3,1)';
+                                    el.style.transform = 'translate(' + ddx + 'px,' + ddy + 'px) scale(0)';
+                                    el.style.opacity = '0';
+                                });
+                            })(p, dx, dy, dur);
+                            setTimeout((function (pp) { return function () { pp.remove(); }; })(p), 1400);
+                        }
+                    }, delay);
+                }
+
+                burst(w * 0.25, h * 0.3, 0);
+                burst(w * 0.75, h * 0.25, 300);
+                burst(w * 0.5, h * 0.15, 600);
+                burst(w * 0.2, h * 0.5, 900);
+                burst(w * 0.8, h * 0.45, 1100);
+                burst(w * 0.5, h * 0.55, 1400);
+                burst(w * 0.35, h * 0.2, 1700);
+                burst(w * 0.65, h * 0.35, 2000);
+            }
+
+            /* ── Scroll Observer for letter content ── */
+            function setupLetterObservers() {
+                var obs = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (e) {
+                        if (!e.isIntersecting) return;
+                        var t = e.target;
+                        if (t.classList.contains('salutation') || t.classList.contains('farewell-block')) {
+                            t.classList.add('revealed');
+                        }
+                        if (t.classList.contains('ink-reveal')) {
+                            t.classList.add('revealed');
+                        }
+                        obs.unobserve(t);
+                    });
+                }, { threshold: 0.2 });
+
+                document.querySelectorAll('[data-reveal]').forEach(function (el) {
+                    obs.observe(el);
+                });
+            }
+
+            /* ── Candle layer visibility ── */
+            function setupCandleVisibility() {
+                var lc = document.getElementById('letter-content');
+                var obs = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (e) {
+                        candleLay.classList.toggle('active', e.isIntersecting);
+                    });
+                }, { threshold: 0.01 });
+                obs.observe(lc);
+            }
+
+            /* ══════════════════════════════════════
+               SCROLL ENGINE — drives intro animation
+               ══════════════════════════════════════ */
+            var lastP = -1;
+            var vh, spacerH, scrollable;
+
+            function measure() {
+                vh = window.innerHeight;
+                spacerH = spacer.offsetHeight;
+                scrollable = spacerH - vh;
+            }
+
+            function tick() {
+                var top = spacer.getBoundingClientRect().top;
+                var p = clamp01(-top / scrollable);
+
+                if (Math.abs(p - lastP) > 0.0001) {
+                    lastP = p;
+                    updateIntro(p);
+                }
+                requestAnimationFrame(tick);
+            }
+
+            function updateIntro(p) {
+                /* Scroll hint */
+                hint.style.opacity = p < 0.03 ? 1 - p / 0.03 : 0;
+
+                /* Stage candles — fade out as owl approaches */
+                var candleFade = 1 - clamp01(phase(p, 0.08, 0.35));
+                for (var ci = 0; ci < stageCandles.length; ci++) {
+                    stageCandles[ci].style.opacity = stageCandles[ci].dataset.baseOp * candleFade;
+                }
+
+                /* ── OWL APPROACH (p 0.00 → 0.42) ── */
+                var owlP = phase(p, 0.0, 0.42);
+                var owlLeave = phase(p, 0.42, 0.54);
+                var owlVisible = owlLeave < 1;
+
+                if (owlVisible) {
+                    var sc = lerp(0.015, 1.0, easeInOut(owlP));
+                    var oy = lerp(-35, 2, easeInOut(owlP));
+                    if (owlLeave > 0) {
+                        oy += lerp(0, -60, easeIn(owlLeave));
+                        sc += lerp(0, 0.3, owlLeave);
+                    }
+                    var fadeIn = clamp01(owlP * 5);
+                    var fadeOut = owlLeave > 0 ? 1 - easeIn(owlLeave) : 1;
+                    owl.style.transform = 'translate(-50%, calc(-50% + ' + oy + 'vh)) scale(' + sc + ')';
+                    owl.style.opacity = fadeIn * fadeOut;
+
+                    var flapDur = lerp(0.22, 0.55, easeOut(owlP));
+                    wingL.style.animationDuration = flapDur + 's';
+                    wingR.style.animationDuration = flapDur + 's';
+
+                    if (owlLeave > 0) {
+                        owlLetter.style.opacity = 1 - clamp01(owlLeave * 3);
+                    } else {
+                        owlLetter.style.opacity = '1';
+                    }
+                } else {
+                    owl.style.opacity = '0';
+                }
+
+                /* ── ENVELOPE DROP & GROW phase 1 (p 0.42 → 0.60) ── */
+                var envAppear = phase(p, 0.42, 0.50);
+                var envGrow1 = phase(p, 0.50, 0.60);
+                var envVisible = envAppear > 0;
+
+                var baseW = stage.offsetWidth < 600 ? 160 : 280;
+                var targetScale = Math.max(stage.offsetWidth / baseW, vh / (baseW * 0.714)) * 1.15;
+                var midScale = Math.min(2.8, targetScale * 0.45);
+
+                if (envVisible) {
+                    var envFadeIn = clamp01(envAppear * 4);
+                    var envSc;
+
+                    /* ── FLAP OPEN (p 0.60 → 0.73) — while envelope is at midScale ── */
+                    var flapP = phase(p, 0.60, 0.73);
+
+                    /* ── ENVELOPE GROW phase 2 (p 0.73 → 0.88) ── */
+                    var envGrow2 = phase(p, 0.73, 0.88);
+
+                    if (envGrow2 > 0) {
+                        envSc = lerp(midScale, targetScale, easeInOut(envGrow2));
+                    } else if (envGrow1 > 0) {
+                        envSc = lerp(1, midScale, easeOut(envGrow1));
+                    } else {
+                        envSc = lerp(0.45, 1, easeOut(envAppear));
+                    }
+
+                    var envY = lerp(8, 0, easeOut(envAppear));
+                    envWrap.style.transform = 'translate(-50%, calc(-50% + ' + envY + 'vh)) scale(' + envSc + ')';
+                    envWrap.style.opacity = envFadeIn;
+
+                    envFlap.style.transform = 'rotateX(' + (180 * easeInOut(flapP)) + 'deg)';
+
+                    if (flapP > 0.05 && flapP < 0.4) {
+                        var sealRect = envSeal.getBoundingClientRect();
+                        spawnSparkles(sealRect.left + sealRect.width / 2, sealRect.top + sealRect.height / 2);
+                    }
+                    envSeal.style.opacity = 1 - clamp01(flapP * 3);
+                } else {
+                    envWrap.style.opacity = '0';
+                }
+
+                /* ── TRANSITION TO PARCHMENT (p 0.86 → 1.0) ── */
+                var transP = phase(p, 0.86, 1.0);
+                overlay.style.opacity = easeInOut(transP);
+
+                envChrome.forEach(function (el) {
+                    el.style.opacity = 1 - clamp01(transP * 2);
+                });
+            }
+
+            /* ── INIT ── */
+            /* ── Broom flyby animation ── */
+            function setupBroomFlyby() {
+                var scene = document.getElementById('broom-scene');
+                var rider = document.getElementById('broom-rider');
+                if (!scene || !rider) return;
+
+                var triggered = false;
+
+                function spawnSparkle(x, y) {
+                    var el = document.createElement('div');
+                    el.className = 'broom-sparkle';
+                    var ox = (Math.random() - 0.5) * 24;
+                    var oy = (Math.random() - 0.5) * 20;
+                    var size = 3 + Math.random() * 5;
+                    el.style.left = x + ox + 'px';
+                    el.style.top = y + oy + 'px';
+                    el.style.width = size + 'px';
+                    el.style.height = size + 'px';
+                    scene.appendChild(el);
+                    setTimeout(function () { el.remove(); }, 1000);
+                }
+
+                function spawnStar(x, y) {
+                    var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                    svg.setAttribute('viewBox', '0 0 20 20');
+                    svg.setAttribute('width', '12');
+                    svg.setAttribute('height', '12');
+                    svg.classList.add('broom-star');
+                    var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                    path.setAttribute('d', 'M10 0 L12.5 7.5 L20 10 L12.5 12.5 L10 20 L7.5 12.5 L0 10 L7.5 7.5Z');
+                    path.setAttribute('fill', '#c9a84c');
+                    svg.appendChild(path);
+                    var ox = (Math.random() - 0.5) * 30;
+                    var oy = (Math.random() - 0.5) * 30;
+                    svg.style.left = (x + ox - 6) + 'px';
+                    svg.style.top = (y + oy - 6) + 'px';
+                    scene.appendChild(svg);
+                    setTimeout(function () { svg.remove(); }, 1300);
+                }
+
+                function emitTrail() {
+                    var rect = rider.getBoundingClientRect();
+                    var sceneRect = scene.getBoundingClientRect();
+                    var tailX = rect.left - sceneRect.left + rect.width * 0.1;
+                    var tailY = rect.top - sceneRect.top + rect.height * 0.6;
+                    for (var i = 0; i < 2; i++) spawnSparkle(tailX, tailY);
+                    if (Math.random() < 0.35) spawnStar(tailX, tailY);
+                }
+
+                function startTrail() {
+                    var start = performance.now();
+                    var duration = 3600;
+                    function loop(now) {
+                        if (now - start > duration) return;
+                        emitTrail();
+                        requestAnimationFrame(loop);
+                    }
+                    requestAnimationFrame(loop);
+                }
+
+                var obs = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (e) {
+                        if (e.isIntersecting && !triggered) {
+                            triggered = true;
+                            rider.classList.add('fly');
+                            startTrail();
+                            obs.disconnect();
+                        }
+                    });
+                }, { threshold: 0.4 });
+                obs.observe(scene);
+            }
+
+            /* ── Marauder's Map closing sequence ── */
+            function setupMapSequence() {
+                var seqEl = document.getElementById('map-sequence');
+                var mapEl = document.getElementById('marauders-map');
+                var mapOuter = document.getElementById('map-outer');
+                var mapFront = document.getElementById('map-front');
+                var foldTop = document.getElementById('map-fold-top');
+                var foldBottom = document.getElementById('map-fold-bottom');
+                var foldLeft = document.getElementById('map-fold-left');
+                var foldRight = document.getElementById('map-fold-right');
+                var crease = document.getElementById('map-crease');
+                var mischiefTx = document.getElementById('mischief-text');
+                var finalMsg = document.getElementById('final-message');
+                if (!seqEl || !mapEl) return;
+
+                var lastSeqP = -1;
+                function tickMap() {
+                    var rect = seqEl.getBoundingClientRect();
+                    var seqH = seqEl.offsetHeight;
+                    var vh = window.innerHeight;
+                    var scrolled = -rect.top;
+                    var total = seqH - vh;
+                    if (total <= 0) { requestAnimationFrame(tickMap); return; }
+                    var p = clamp01(scrolled / total);
+
+                    if (Math.abs(p - lastSeqP) < 0.0002) {
+                        requestAnimationFrame(tickMap);
+                        return;
+                    }
+                    lastSeqP = p;
+
+                    /* Phase 1 (p 0→0.25): Map flies in from bottom to center */
+                    var flyP = clamp01(p / 0.25);
+                    var flyY = lerp(120, 0, easeOut(flyP));
+                    var mapScale = lerp(0.7, 1, easeOut(flyP));
+
+                    /* Phase 2 (p 0.25→0.40): Map is displayed */
+                    var showP = phase(p, 0.25, 0.40);
+
+                    /* Phase 3 (p 0.40→0.55): Top/bottom fold closed (horizontal) */
+                    var hFoldP = phase(p, 0.40, 0.55);
+                    var hFoldAngle = lerp(0, 90, easeInOut(hFoldP));
+                    var hFoldScale = lerp(1, 0.90, easeInOut(hFoldP));
+
+                    /* Phase 4 (p 0.55→0.70): Left/right flaps fold inward (vertical) */
+                    var vFoldP = phase(p, 0.55, 0.70);
+                    var vFoldAngle = lerp(0, 90, easeInOut(vFoldP));
+                    var vFoldScale = lerp(0.90, 0.82, easeInOut(vFoldP));
+
+                    /* Phase 5 (p 0.70→0.82): Mischief Managed */
+                    var mischiefP = phase(p, 0.70, 0.82);
+
+                    /* Phase 6 (p 0.82→1.0): Final message + shrink */
+                    var finalP = phase(p, 0.82, 1.0);
+                    var shrinkScale = lerp(0.82, 0.45, easeInOut(finalP));
+
+                    /* Apply: fly-in */
+                    if (hFoldP <= 0) {
+                        mapEl.style.transform = 'translateY(' + flyY + 'vh) scale(' + mapScale + ')';
+                    }
+
+                    /* Apply: front visibility */
+                    mapFront.style.opacity = hFoldP < 0.5 ? 1 : lerp(1, 0, (hFoldP - 0.5) * 2);
+
+                    /* Apply: horizontal fold */
+                    if (hFoldP > 0) {
+                        foldTop.style.opacity = 1;
+                        foldBottom.style.opacity = 1;
+                        foldTop.style.pointerEvents = 'auto';
+                        foldBottom.style.pointerEvents = 'auto';
+                        foldTop.style.transform = 'rotateX(' + hFoldAngle + 'deg)';
+                        foldBottom.style.transform = 'rotateX(-' + hFoldAngle + 'deg)';
+                        var cs = vFoldP > 0 ? (finalP > 0 ? shrinkScale : vFoldScale) : hFoldScale;
+                        mapEl.style.transform = 'translateY(0vh) scale(' + cs + ')';
+                    } else {
+                        foldTop.style.opacity = 0;
+                        foldBottom.style.opacity = 0;
+                        foldTop.style.pointerEvents = 'none';
+                        foldBottom.style.pointerEvents = 'none';
+                        foldTop.style.transform = 'rotateX(0deg)';
+                        foldBottom.style.transform = 'rotateX(0deg)';
+                    }
+
+                    /* Apply: crease (visible once horizontal fold completes) */
+                    crease.style.opacity = hFoldP >= 1 ? 1 : 0;
+
+                    /* Apply: vertical fold (side flaps) */
+                    if (vFoldP > 0) {
+                        foldLeft.style.opacity = 1;
+                        foldRight.style.opacity = 1;
+                        foldLeft.style.pointerEvents = 'auto';
+                        foldRight.style.pointerEvents = 'auto';
+                        foldLeft.style.transform = 'rotateY(-' + vFoldAngle + 'deg)';
+                        foldRight.style.transform = 'rotateY(' + vFoldAngle + 'deg)';
+                    } else {
+                        foldLeft.style.opacity = 0;
+                        foldRight.style.opacity = 0;
+                        foldLeft.style.pointerEvents = 'none';
+                        foldRight.style.pointerEvents = 'none';
+                        foldLeft.style.transform = 'rotateY(0deg)';
+                        foldRight.style.transform = 'rotateY(0deg)';
+                    }
+
+                    /* Apply: mischief managed text (appears after side flaps close) */
+                    if (mischiefP > 0) {
+                        mischiefTx.style.opacity = easeOut(mischiefP);
+                        mischiefTx.style.transform = 'translate(-50%,-50%) scale(' + lerp(0.7, 1, easeOut(mischiefP)) + ')';
+                    } else {
+                        mischiefTx.style.opacity = 0;
+                    }
+
+                    /* Apply: final message */
+                    if (finalP > 0.2) {
+                        finalMsg.classList.add('visible');
+                    } else {
+                        finalMsg.classList.remove('visible');
+                    }
+
+                    requestAnimationFrame(tickMap);
+                }
                 requestAnimationFrame(tickMap);
-                return;
-            }
-            lastSeqP = p;
-
-            /* Phase 1 (p 0→0.35): Map flies in from bottom to center */
-            var flyP = clamp01(p / 0.35);
-            var flyY = lerp(120, 0, easeOut(flyP));
-            var mapScale = lerp(0.7, 1, easeOut(flyP));
-
-            /* Phase 2 (p 0.35→0.55): Map is displayed, footprints animate */
-            var showP = phase(p, 0.35, 0.55);
-
-            /* Phase 3 (p 0.55→0.75): Map folds closed */
-            var foldP = phase(p, 0.55, 0.75);
-            var foldAngle = lerp(0, 90, easeInOut(foldP));
-            var foldScale = lerp(1, 0.85, easeInOut(foldP));
-
-            /* Phase 4 (p 0.75→0.85): Mischief Managed */
-            var mischiefP = phase(p, 0.75, 0.85);
-
-            /* Phase 5 (p 0.85→1.0): Final message + shrink map to half */
-            var finalP = phase(p, 0.85, 1.0);
-            var shrinkScale = lerp(0.85, 0.45, easeInOut(finalP));
-
-            /* Apply: fly-in */
-            if (foldP <= 0) {
-                mapEl.style.transform = 'translateY(' + flyY + 'vh) scale(' + mapScale + ')';
             }
 
-            /* Apply: front visibility */
-            mapFront.style.opacity = foldP < 0.5 ? 1 : lerp(1, 0, (foldP - 0.5) * 2);
+            /* ── Diagon Alley brick wall + castle reveal (scroll-driven) ── */
+            function setupDiagonAlley() {
+                var scrollEl = document.getElementById('diagon-scroll');
+                var wall = document.getElementById('brick-wall');
+                var textEl = document.getElementById('diagon-text');
+                var castle = document.getElementById('castle-scene');
+                if (!scrollEl || !wall) return;
 
-            /* Apply: fold + shrink */
-            if (foldP > 0) {
-                foldTop.style.opacity = 1;
-                foldBottom.style.opacity = 1;
-                foldTop.style.pointerEvents = 'auto';
-                foldBottom.style.pointerEvents = 'auto';
-                foldTop.style.transform = 'rotateX(' + foldAngle + 'deg)';
-                foldBottom.style.transform = 'rotateX(-' + foldAngle + 'deg)';
-                var currentScale = finalP > 0 ? shrinkScale : foldScale;
-                mapEl.style.transform = 'translateY(0vh) scale(' + currentScale + ')';
+                var rows = 12, cols = 8;
+                var brickData = [];
+                var cxB = cols / 2, cyB = rows / 2;
+                var maxDist = 0;
+                for (var r = 0; r < rows; r++) {
+                    for (var c = 0; c < cols; c++) {
+                        var b = document.createElement('div');
+                        b.className = 'brick' + (r % 2 === 1 ? ' offset' : '');
+                        var hue = 20 + Math.random() * 12;
+                        var light = 32 + Math.random() * 14;
+                        b.style.background = 'linear-gradient(165deg, hsl(' + hue + ',38%,' + (light + 8) + '%) 0%, hsl(' + hue + ',35%,' + light + '%) 50%, hsl(' + hue + ',32%,' + (light - 5) + '%) 100%)';
+                        wall.appendChild(b);
+                        var dist = Math.sqrt(Math.pow(c - cxB, 2) + Math.pow(r - cyB, 2));
+                        if (dist > maxDist) maxDist = dist;
+                        brickData.push({
+                            el: b,
+                            dx: (c - cxB) * (30 + Math.random() * 20),
+                            dy: (r - cyB) * (25 + Math.random() * 15),
+                            rot: (Math.random() - 0.5) * 30,
+                            dist: dist
+                        });
+                    }
+                }
+
+                var lastP = -1;
+                function tickDiagon() {
+                    var rect = scrollEl.getBoundingClientRect();
+                    var seqH = scrollEl.offsetHeight;
+                    var vh = window.innerHeight;
+                    var scrolled = -rect.top;
+                    var total = seqH - vh;
+                    if (total <= 0) { requestAnimationFrame(tickDiagon); return; }
+                    var p = clamp01(scrolled / total);
+
+                    if (Math.abs(p - lastP) < 0.0003) {
+                        requestAnimationFrame(tickDiagon);
+                        return;
+                    }
+                    lastP = p;
+
+                    /*
+                     * Phase 1 (p 0→0.30):   Bricks open outward from center
+                     * Phase 2 (p 0.15→0.28): Text fades in
+                     * Phase 3 (p 0.50→0.70): Castle scales in (text stays visible)
+                     * Phase 4 (p 0.75→0.88): Text fades out (castle fully visible)
+                     * Phase 5 (p 0.88→1.0):  Castle lingers alone
+                     */
+                    var brickP  = phase(p, 0.0, 0.30);
+                    var textIn  = phase(p, 0.15, 0.28);
+                    var castleP = phase(p, 0.50, 0.70);
+                    var textOut = phase(p, 0.75, 0.88);
+
+                    /* Bricks: each brick opens based on its distance from center */
+                    for (var i = 0; i < brickData.length; i++) {
+                        var bd = brickData[i];
+                        var brickLocal = clamp01((brickP - (bd.dist / maxDist) * 0.5) / 0.5);
+                        var t = easeOut(brickLocal);
+                        var tx = bd.dx * t;
+                        var ty = bd.dy * t;
+                        var tr = bd.rot * t;
+                        var sc = lerp(1, 0.3, t);
+                        var op = lerp(1, 0, clamp01(brickLocal * 1.5));
+                        bd.el.style.transform = 'translate(' + tx + 'px,' + ty + 'px) rotate(' + tr + 'deg) scale(' + sc + ')';
+                        bd.el.style.opacity = op;
+                    }
+                    wall.style.opacity = brickP >= 1 ? 0 : 1;
+
+                    /* Text: fades in, stays visible through castle reveal, then fades out */
+                    var textOpacity = 0;
+                    if (textOut > 0) {
+                        textOpacity = lerp(1, 0, easeOut(textOut));
+                    } else if (textIn > 0) {
+                        textOpacity = easeOut(textIn);
+                    }
+                    textEl.style.opacity = textOpacity;
+
+                    /* Castle: scales in and fades in */
+                    var castleOp = easeOut(castleP);
+                    var castleSc = lerp(0.88, 1, easeOut(castleP));
+                    castle.style.opacity = castleOp;
+                    castle.style.transform = 'scale(' + castleSc + ')';
+
+                    requestAnimationFrame(tickDiagon);
+                }
+                requestAnimationFrame(tickDiagon);
+            }
+
+            function init() {
+                createStageCandles();
+                createStars();
+                createCandles();
+                measure();
+                window.addEventListener('resize', measure);
+                requestAnimationFrame(tick);
+                setupLetterObservers();
+                setupMagicScroll();
+                setupCandleVisibility();
+                setupBroomFlyby();
+                setupDiagonAlley();
+                setupSpellsScroll();
+                setupFootprints();
+                setupMapSequence();
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', init);
             } else {
-                foldTop.style.opacity = 0;
-                foldBottom.style.opacity = 0;
-                foldTop.style.pointerEvents = 'none';
-                foldBottom.style.pointerEvents = 'none';
-                foldTop.style.transform = 'rotateX(0deg)';
-                foldBottom.style.transform = 'rotateX(0deg)';
+                init();
             }
-
-            /* Apply: mischief managed text */
-            if (mischiefP > 0) {
-                mischiefTx.style.opacity = easeOut(mischiefP);
-                mischiefTx.style.transform = 'translate(-50%,-50%) scale(' + lerp(0.7, 1, easeOut(mischiefP)) + ')';
-            } else {
-                mischiefTx.style.opacity = 0;
-            }
-
-            /* Apply: final message */
-            if (finalP > 0.2) {
-                finalMsg.classList.add('visible');
-            } else {
-                finalMsg.classList.remove('visible');
-            }
-
-            requestAnimationFrame(tickMap);
-        }
-        requestAnimationFrame(tickMap);
-    }
-
-    function init() {
-        createStageCandles();
-        createStars();
-        createCandles();
-        measure();
-        window.addEventListener('resize', measure);
-        requestAnimationFrame(tick);
-        setupLetterObservers();
-        setupMagicObserver();
-        setupCandleVisibility();
-        setupBroomFlyby();
-        setupSpellsScroll();
-        setupFootprints();
-        setupMapSequence();
-    }
-
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init);
-    } else {
-        init();
-    }
-})();
-</script>
+        })();
+    </script>
 </body>
+
 </html>
